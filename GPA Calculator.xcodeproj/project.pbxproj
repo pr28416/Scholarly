@@ -1,0 +1,920 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		048B0B6C3127947CD1650FA2 /* Pods_GPA_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CCF1364DE15AB6BA911B32 /* Pods_GPA_Calculator.framework */; };
+		404BD8F1B6B8802BA9F55E6E /* Pods_GPA_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6973C259EAA4A820D967BE9F /* Pods_GPA_CalculatorTests.framework */; };
+		81569B55233ACB4A009098C8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81569B54233ACB4A009098C8 /* CloudKit.framework */; };
+		819D7FBA233657AA00C8A107 /* Old code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D7FB9233657AA00C8A107 /* Old code.swift */; };
+		81C17C8F2334644500FBFCE8 /* SATScoreBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C17C8E2334644500FBFCE8 /* SATScoreBase.swift */; };
+		82698BF02213803700B3C10E /* FolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698BEF2213803700B3C10E /* FolderController.swift */; };
+		82698BF62213809C00B3C10E /* folderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698BF52213809C00B3C10E /* folderCell.swift */; };
+		82698C032215A03B00B3C10E /* segoeuii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BF72215A03900B3C10E /* segoeuii.ttf */; };
+		82698C042215A03B00B3C10E /* segoeuil.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BF82215A03900B3C10E /* segoeuil.ttf */; };
+		82698C052215A03B00B3C10E /* seguili.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BF92215A03A00B3C10E /* seguili.ttf */; };
+		82698C062215A03B00B3C10E /* seguibl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BFA2215A03A00B3C10E /* seguibl.ttf */; };
+		82698C072215A03B00B3C10E /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BFB2215A03A00B3C10E /* seguisb.ttf */; };
+		82698C082215A03B00B3C10E /* segoeuiz.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BFC2215A03A00B3C10E /* segoeuiz.ttf */; };
+		82698C092215A03B00B3C10E /* seguisbi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BFD2215A03A00B3C10E /* seguisbi.ttf */; };
+		82698C0A2215A03B00B3C10E /* segoeui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BFE2215A03A00B3C10E /* segoeui.ttf */; };
+		82698C0B2215A03B00B3C10E /* seguibli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698BFF2215A03A00B3C10E /* seguibli.ttf */; };
+		82698C0C2215A03B00B3C10E /* seguisli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698C002215A03A00B3C10E /* seguisli.ttf */; };
+		82698C0D2215A03B00B3C10E /* segoeuib.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698C012215A03A00B3C10E /* segoeuib.ttf */; };
+		82698C0E2215A03B00B3C10E /* segoeuisl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82698C022215A03B00B3C10E /* segoeuisl.ttf */; };
+		82698C122215A9C300B3C10E /* GPAEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698C112215A9C300B3C10E /* GPAEditor.swift */; };
+		82698C142215A9D700B3C10E /* SubEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698C132215A9D700B3C10E /* SubEditor.swift */; };
+		82698C162215A9E500B3C10E /* subCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698C152215A9E500B3C10E /* subCell.swift */; };
+		82AC4D34220BB8B4006D501B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D33220BB8B4006D501B /* AppDelegate.swift */; };
+		82AC4D39220BB8B4006D501B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AC4D37220BB8B4006D501B /* Main.storyboard */; };
+		82AC4D3C220BB8B4006D501B /* GPA_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D3A220BB8B4006D501B /* GPA_Calculator.xcdatamodeld */; };
+		82AC4D3E220BB8B5006D501B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AC4D3D220BB8B5006D501B /* Assets.xcassets */; };
+		82AC4D41220BB8B5006D501B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AC4D3F220BB8B5006D501B /* LaunchScreen.storyboard */; };
+		82AC4D4C220BB8B5006D501B /* GPA_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D4B220BB8B5006D501B /* GPA_CalculatorTests.swift */; };
+		82AC4D57220BB8B5006D501B /* GPA_CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D56220BB8B5006D501B /* GPA_CalculatorUITests.swift */; };
+		82AC4D67220BC6EA006D501B /* classCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D66220BC6EA006D501B /* classCell.swift */; };
+		82AC4D6B220FD454006D501B /* GPACalcHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D6A220FD454006D501B /* GPACalcHome.swift */; };
+		82C392D42238381400E3145B /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392CC2238381300E3145B /* Nunito-ExtraLight.ttf */; };
+		82C392D52238381400E3145B /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392CD2238381300E3145B /* Nunito-ExtraBold.ttf */; };
+		82C392D62238381400E3145B /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392CE2238381300E3145B /* Nunito-Black.ttf */; };
+		82C392D72238381400E3145B /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392CF2238381300E3145B /* Nunito-SemiBold.ttf */; };
+		82C392D82238381400E3145B /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D02238381400E3145B /* Nunito-Light.ttf */; };
+		82C392D92238381400E3145B /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D12238381400E3145B /* Nunito-Regular.ttf */; };
+		82C392DA2238381400E3145B /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D22238381400E3145B /* Nunito-Bold.ttf */; };
+		82C392DB2238381400E3145B /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D32238381400E3145B /* Nunito-Medium.ttf */; };
+		82D75E8622D223BB00FEE95C /* APScoreBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D75E8522D223BB00FEE95C /* APScoreBase.swift */; };
+		82FDD91822498A80005D6553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82FDD91722498A80005D6553 /* GoogleService-Info.plist */; };
+		A13C08B365E4DDFEDC023A19 /* Pods_GPA_CalculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9990500662FF576C9FF6893 /* Pods_GPA_CalculatorUITests.framework */; };
+		C3E1A413225B8DE1007E231F /* CumulativeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1A412225B8DE1007E231F /* CumulativeCalculator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		82AC4D48220BB8B5006D501B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82AC4D28220BB8B4006D501B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82AC4D2F220BB8B4006D501B;
+			remoteInfo = "GPA Calculator";
+		};
+		82AC4D53220BB8B5006D501B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82AC4D28220BB8B4006D501B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82AC4D2F220BB8B4006D501B;
+			remoteInfo = "GPA Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A572397628B68C458963605 /* Pods-GPA CalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorTests/Pods-GPA CalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		37BD0CE87063996011B5EA86 /* Pods-GPA CalculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorUITests/Pods-GPA CalculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FF7A1F17BE5E96474998AEC /* Pods-GPA CalculatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorUITests.release.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorUITests/Pods-GPA CalculatorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		632AAA990134CA32AC821FBD /* Pods-GPA CalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorTests.debug.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorTests/Pods-GPA CalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6973C259EAA4A820D967BE9F /* Pods_GPA_CalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_CalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81569B53233ACB48009098C8 /* GPA Calculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GPA Calculator.entitlements"; sourceTree = "<group>"; };
+		81569B54233ACB4A009098C8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		819D7FB9233657AA00C8A107 /* Old code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Old code.swift"; path = "View Controllers/Old code.swift"; sourceTree = "<group>"; };
+		81C17C8E2334644500FBFCE8 /* SATScoreBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoreBase.swift; sourceTree = "<group>"; };
+		82698BEF2213803700B3C10E /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; };
+		82698BF52213809C00B3C10E /* folderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = folderCell.swift; sourceTree = "<group>"; };
+		82698BF72215A03900B3C10E /* segoeuii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuii.ttf; sourceTree = "<group>"; };
+		82698BF82215A03900B3C10E /* segoeuil.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuil.ttf; sourceTree = "<group>"; };
+		82698BF92215A03A00B3C10E /* seguili.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguili.ttf; sourceTree = "<group>"; };
+		82698BFA2215A03A00B3C10E /* seguibl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguibl.ttf; sourceTree = "<group>"; };
+		82698BFB2215A03A00B3C10E /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
+		82698BFC2215A03A00B3C10E /* segoeuiz.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuiz.ttf; sourceTree = "<group>"; };
+		82698BFD2215A03A00B3C10E /* seguisbi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisbi.ttf; sourceTree = "<group>"; };
+		82698BFE2215A03A00B3C10E /* segoeui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeui.ttf; sourceTree = "<group>"; };
+		82698BFF2215A03A00B3C10E /* seguibli.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguibli.ttf; sourceTree = "<group>"; };
+		82698C002215A03A00B3C10E /* seguisli.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisli.ttf; sourceTree = "<group>"; };
+		82698C012215A03A00B3C10E /* segoeuib.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuib.ttf; sourceTree = "<group>"; };
+		82698C022215A03B00B3C10E /* segoeuisl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuisl.ttf; sourceTree = "<group>"; };
+		82698C112215A9C300B3C10E /* GPAEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAEditor.swift; sourceTree = "<group>"; };
+		82698C132215A9D700B3C10E /* SubEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEditor.swift; sourceTree = "<group>"; };
+		82698C152215A9E500B3C10E /* subCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subCell.swift; sourceTree = "<group>"; };
+		82AC4D30220BB8B4006D501B /* GPA Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPA Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82AC4D33220BB8B4006D501B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		82AC4D38220BB8B4006D501B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		82AC4D3B220BB8B4006D501B /* GPA_Calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPA_Calculator.xcdatamodel; sourceTree = "<group>"; };
+		82AC4D3D220BB8B5006D501B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		82AC4D40220BB8B5006D501B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		82AC4D42220BB8B5006D501B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AC4D47220BB8B5006D501B /* GPA CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GPA CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82AC4D4B220BB8B5006D501B /* GPA_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA_CalculatorTests.swift; sourceTree = "<group>"; };
+		82AC4D4D220BB8B5006D501B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AC4D52220BB8B5006D501B /* GPA CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GPA CalculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82AC4D56220BB8B5006D501B /* GPA_CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA_CalculatorUITests.swift; sourceTree = "<group>"; };
+		82AC4D58220BB8B5006D501B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AC4D66220BC6EA006D501B /* classCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classCell.swift; sourceTree = "<group>"; };
+		82AC4D6A220FD454006D501B /* GPACalcHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPACalcHome.swift; sourceTree = "<group>"; };
+		82C392CC2238381300E3145B /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
+		82C392CD2238381300E3145B /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		82C392CE2238381300E3145B /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		82C392CF2238381300E3145B /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		82C392D02238381400E3145B /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		82C392D12238381400E3145B /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		82C392D22238381400E3145B /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		82C392D32238381400E3145B /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
+		82D75E8522D223BB00FEE95C /* APScoreBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APScoreBase.swift; sourceTree = "<group>"; };
+		82FDD91722498A80005D6553 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		94CCF1364DE15AB6BA911B32 /* Pods_GPA_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4035BDC215BF1C4D6F15E2 /* Pods-GPA Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Calculator.debug.xcconfig"; path = "Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		C3E1A412225B8DE1007E231F /* CumulativeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeCalculator.swift; sourceTree = "<group>"; };
+		E9990500662FF576C9FF6893 /* Pods_GPA_CalculatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_CalculatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5DF4BBA62A67A3BBBE3819 /* Pods-GPA Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Calculator.release.xcconfig"; path = "Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		82AC4D2D220BB8B4006D501B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81569B55233ACB4A009098C8 /* CloudKit.framework in Frameworks */,
+				048B0B6C3127947CD1650FA2 /* Pods_GPA_Calculator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82AC4D44220BB8B5006D501B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404BD8F1B6B8802BA9F55E6E /* Pods_GPA_CalculatorTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82AC4D4F220BB8B5006D501B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13C08B365E4DDFEDC023A19 /* Pods_GPA_CalculatorUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01DD4CF7EAC0412626C6A63B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE4035BDC215BF1C4D6F15E2 /* Pods-GPA Calculator.debug.xcconfig */,
+				EF5DF4BBA62A67A3BBBE3819 /* Pods-GPA Calculator.release.xcconfig */,
+				632AAA990134CA32AC821FBD /* Pods-GPA CalculatorTests.debug.xcconfig */,
+				1A572397628B68C458963605 /* Pods-GPA CalculatorTests.release.xcconfig */,
+				37BD0CE87063996011B5EA86 /* Pods-GPA CalculatorUITests.debug.xcconfig */,
+				3FF7A1F17BE5E96474998AEC /* Pods-GPA CalculatorUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		82698BF12213804400B3C10E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				82698BEF2213803700B3C10E /* FolderController.swift */,
+				82AC4D6A220FD454006D501B /* GPACalcHome.swift */,
+				81C17C8E2334644500FBFCE8 /* SATScoreBase.swift */,
+				82698C112215A9C300B3C10E /* GPAEditor.swift */,
+				82698C132215A9D700B3C10E /* SubEditor.swift */,
+				C3E1A412225B8DE1007E231F /* CumulativeCalculator.swift */,
+				82D75E8522D223BB00FEE95C /* APScoreBase.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		82698BF22213806100B3C10E /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				82AC4D66220BC6EA006D501B /* classCell.swift */,
+				82698BF52213809C00B3C10E /* folderCell.swift */,
+				82698C152215A9E500B3C10E /* subCell.swift */,
+			);
+			path = "Table Cells";
+			sourceTree = "<group>";
+		};
+		82698C102215A04A00B3C10E /* segoeui */ = {
+			isa = PBXGroup;
+			children = (
+				82698BFE2215A03A00B3C10E /* segoeui.ttf */,
+				82698C012215A03A00B3C10E /* segoeuib.ttf */,
+				82698BF72215A03900B3C10E /* segoeuii.ttf */,
+				82698BF82215A03900B3C10E /* segoeuil.ttf */,
+				82698C022215A03B00B3C10E /* segoeuisl.ttf */,
+				82698BFC2215A03A00B3C10E /* segoeuiz.ttf */,
+				82698BFA2215A03A00B3C10E /* seguibl.ttf */,
+				82698BFF2215A03A00B3C10E /* seguibli.ttf */,
+				82698BF92215A03A00B3C10E /* seguili.ttf */,
+				82698BFB2215A03A00B3C10E /* seguisb.ttf */,
+				82698BFD2215A03A00B3C10E /* seguisbi.ttf */,
+				82698C002215A03A00B3C10E /* seguisli.ttf */,
+			);
+			path = segoeui;
+			sourceTree = "<group>";
+		};
+		82AC4D27220BB8B4006D501B = {
+			isa = PBXGroup;
+			children = (
+				82AC4D32220BB8B4006D501B /* GPA Calculator */,
+				82AC4D4A220BB8B5006D501B /* GPA CalculatorTests */,
+				82AC4D55220BB8B5006D501B /* GPA CalculatorUITests */,
+				82AC4D31220BB8B4006D501B /* Products */,
+				01DD4CF7EAC0412626C6A63B /* Pods */,
+				B5F1EAAD9EA4780813E55DCE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		82AC4D31220BB8B4006D501B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82AC4D30220BB8B4006D501B /* GPA Calculator.app */,
+				82AC4D47220BB8B5006D501B /* GPA CalculatorTests.xctest */,
+				82AC4D52220BB8B5006D501B /* GPA CalculatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		82AC4D32220BB8B4006D501B /* GPA Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				81569B53233ACB48009098C8 /* GPA Calculator.entitlements */,
+				819D7FB9233657AA00C8A107 /* Old code.swift */,
+				82698BF12213804400B3C10E /* View Controllers */,
+				82698BF22213806100B3C10E /* Table Cells */,
+				82AC4D33220BB8B4006D501B /* AppDelegate.swift */,
+				82AC4D37220BB8B4006D501B /* Main.storyboard */,
+				82AC4D3D220BB8B5006D501B /* Assets.xcassets */,
+				82AC4D3F220BB8B5006D501B /* LaunchScreen.storyboard */,
+				82AC4D42220BB8B5006D501B /* Info.plist */,
+				82AC4D3A220BB8B4006D501B /* GPA_Calculator.xcdatamodeld */,
+				82FDD91722498A80005D6553 /* GoogleService-Info.plist */,
+				82C392CA223837F400E3145B /* fonts */,
+				82698C102215A04A00B3C10E /* segoeui */,
+			);
+			path = "GPA Calculator";
+			sourceTree = "<group>";
+		};
+		82AC4D4A220BB8B5006D501B /* GPA CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				82AC4D4B220BB8B5006D501B /* GPA_CalculatorTests.swift */,
+				82AC4D4D220BB8B5006D501B /* Info.plist */,
+			);
+			path = "GPA CalculatorTests";
+			sourceTree = "<group>";
+		};
+		82AC4D55220BB8B5006D501B /* GPA CalculatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				82AC4D56220BB8B5006D501B /* GPA_CalculatorUITests.swift */,
+				82AC4D58220BB8B5006D501B /* Info.plist */,
+			);
+			path = "GPA CalculatorUITests";
+			sourceTree = "<group>";
+		};
+		82C392CA223837F400E3145B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				82C392CB2238380600E3145B /* nunito */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		82C392CB2238380600E3145B /* nunito */ = {
+			isa = PBXGroup;
+			children = (
+				82C392CE2238381300E3145B /* Nunito-Black.ttf */,
+				82C392D22238381400E3145B /* Nunito-Bold.ttf */,
+				82C392CD2238381300E3145B /* Nunito-ExtraBold.ttf */,
+				82C392CC2238381300E3145B /* Nunito-ExtraLight.ttf */,
+				82C392D02238381400E3145B /* Nunito-Light.ttf */,
+				82C392D32238381400E3145B /* Nunito-Medium.ttf */,
+				82C392D12238381400E3145B /* Nunito-Regular.ttf */,
+				82C392CF2238381300E3145B /* Nunito-SemiBold.ttf */,
+			);
+			path = nunito;
+			sourceTree = "<group>";
+		};
+		B5F1EAAD9EA4780813E55DCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81569B54233ACB4A009098C8 /* CloudKit.framework */,
+				94CCF1364DE15AB6BA911B32 /* Pods_GPA_Calculator.framework */,
+				6973C259EAA4A820D967BE9F /* Pods_GPA_CalculatorTests.framework */,
+				E9990500662FF576C9FF6893 /* Pods_GPA_CalculatorUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		82AC4D2F220BB8B4006D501B /* GPA Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82AC4D5B220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA Calculator" */;
+			buildPhases = (
+				02B1230FA7338300121411F5 /* [CP] Check Pods Manifest.lock */,
+				82AC4D2C220BB8B4006D501B /* Sources */,
+				82AC4D2D220BB8B4006D501B /* Frameworks */,
+				82AC4D2E220BB8B4006D501B /* Resources */,
+				63C2760E80E16D3EAA2E9345 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GPA Calculator";
+			productName = "GPA Calculator";
+			productReference = 82AC4D30220BB8B4006D501B /* GPA Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		82AC4D46220BB8B5006D501B /* GPA CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82AC4D5E220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA CalculatorTests" */;
+			buildPhases = (
+				500977C3D172153EC69791D0 /* [CP] Check Pods Manifest.lock */,
+				82AC4D43220BB8B5006D501B /* Sources */,
+				82AC4D44220BB8B5006D501B /* Frameworks */,
+				82AC4D45220BB8B5006D501B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82AC4D49220BB8B5006D501B /* PBXTargetDependency */,
+			);
+			name = "GPA CalculatorTests";
+			productName = "GPA CalculatorTests";
+			productReference = 82AC4D47220BB8B5006D501B /* GPA CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		82AC4D51220BB8B5006D501B /* GPA CalculatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82AC4D61220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA CalculatorUITests" */;
+			buildPhases = (
+				4994C417BCB2F8D69B355B70 /* [CP] Check Pods Manifest.lock */,
+				82AC4D4E220BB8B5006D501B /* Sources */,
+				82AC4D4F220BB8B5006D501B /* Frameworks */,
+				82AC4D50220BB8B5006D501B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82AC4D54220BB8B5006D501B /* PBXTargetDependency */,
+			);
+			name = "GPA CalculatorUITests";
+			productName = "GPA CalculatorUITests";
+			productReference = 82AC4D52220BB8B5006D501B /* GPA CalculatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		82AC4D28220BB8B4006D501B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Pranav Ramesh";
+				TargetAttributes = {
+					82AC4D2F220BB8B4006D501B = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					82AC4D46220BB8B5006D501B = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 82AC4D2F220BB8B4006D501B;
+					};
+					82AC4D51220BB8B5006D501B = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 82AC4D2F220BB8B4006D501B;
+					};
+				};
+			};
+			buildConfigurationList = 82AC4D2B220BB8B4006D501B /* Build configuration list for PBXProject "GPA Calculator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 82AC4D27220BB8B4006D501B;
+			productRefGroup = 82AC4D31220BB8B4006D501B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82AC4D2F220BB8B4006D501B /* GPA Calculator */,
+				82AC4D46220BB8B5006D501B /* GPA CalculatorTests */,
+				82AC4D51220BB8B5006D501B /* GPA CalculatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		82AC4D2E220BB8B4006D501B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82698C0E2215A03B00B3C10E /* segoeuisl.ttf in Resources */,
+				82698C062215A03B00B3C10E /* seguibl.ttf in Resources */,
+				82698C072215A03B00B3C10E /* seguisb.ttf in Resources */,
+				82AC4D41220BB8B5006D501B /* LaunchScreen.storyboard in Resources */,
+				82C392DB2238381400E3145B /* Nunito-Medium.ttf in Resources */,
+				82C392D72238381400E3145B /* Nunito-SemiBold.ttf in Resources */,
+				82FDD91822498A80005D6553 /* GoogleService-Info.plist in Resources */,
+				82698C0D2215A03B00B3C10E /* segoeuib.ttf in Resources */,
+				82C392DA2238381400E3145B /* Nunito-Bold.ttf in Resources */,
+				82C392D82238381400E3145B /* Nunito-Light.ttf in Resources */,
+				82698C052215A03B00B3C10E /* seguili.ttf in Resources */,
+				82AC4D3E220BB8B5006D501B /* Assets.xcassets in Resources */,
+				82C392D42238381400E3145B /* Nunito-ExtraLight.ttf in Resources */,
+				82698C092215A03B00B3C10E /* seguisbi.ttf in Resources */,
+				82698C0C2215A03B00B3C10E /* seguisli.ttf in Resources */,
+				82698C042215A03B00B3C10E /* segoeuil.ttf in Resources */,
+				82698C082215A03B00B3C10E /* segoeuiz.ttf in Resources */,
+				82698C0B2215A03B00B3C10E /* seguibli.ttf in Resources */,
+				82C392D52238381400E3145B /* Nunito-ExtraBold.ttf in Resources */,
+				82698C032215A03B00B3C10E /* segoeuii.ttf in Resources */,
+				82AC4D39220BB8B4006D501B /* Main.storyboard in Resources */,
+				82C392D92238381400E3145B /* Nunito-Regular.ttf in Resources */,
+				82698C0A2215A03B00B3C10E /* segoeui.ttf in Resources */,
+				82C392D62238381400E3145B /* Nunito-Black.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82AC4D45220BB8B5006D501B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82AC4D50220BB8B5006D501B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02B1230FA7338300121411F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPA Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4994C417BCB2F8D69B355B70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPA CalculatorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		500977C3D172153EC69791D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPA CalculatorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63C2760E80E16D3EAA2E9345 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		82AC4D2C220BB8B4006D501B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C17C8F2334644500FBFCE8 /* SATScoreBase.swift in Sources */,
+				82AC4D67220BC6EA006D501B /* classCell.swift in Sources */,
+				82698C122215A9C300B3C10E /* GPAEditor.swift in Sources */,
+				82D75E8622D223BB00FEE95C /* APScoreBase.swift in Sources */,
+				C3E1A413225B8DE1007E231F /* CumulativeCalculator.swift in Sources */,
+				82AC4D6B220FD454006D501B /* GPACalcHome.swift in Sources */,
+				82698C142215A9D700B3C10E /* SubEditor.swift in Sources */,
+				82AC4D34220BB8B4006D501B /* AppDelegate.swift in Sources */,
+				82698C162215A9E500B3C10E /* subCell.swift in Sources */,
+				82698BF62213809C00B3C10E /* folderCell.swift in Sources */,
+				82698BF02213803700B3C10E /* FolderController.swift in Sources */,
+				819D7FBA233657AA00C8A107 /* Old code.swift in Sources */,
+				82AC4D3C220BB8B4006D501B /* GPA_Calculator.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82AC4D43220BB8B5006D501B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82AC4D4C220BB8B5006D501B /* GPA_CalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82AC4D4E220BB8B5006D501B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82AC4D57220BB8B5006D501B /* GPA_CalculatorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		82AC4D49220BB8B5006D501B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82AC4D2F220BB8B4006D501B /* GPA Calculator */;
+			targetProxy = 82AC4D48220BB8B5006D501B /* PBXContainerItemProxy */;
+		};
+		82AC4D54220BB8B5006D501B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82AC4D2F220BB8B4006D501B /* GPA Calculator */;
+			targetProxy = 82AC4D53220BB8B5006D501B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		82AC4D37220BB8B4006D501B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82AC4D38220BB8B4006D501B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		82AC4D3F220BB8B5006D501B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82AC4D40220BB8B5006D501B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		82AC4D59220BB8B5006D501B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		82AC4D5A220BB8B5006D501B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		82AC4D5C220BB8B5006D501B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE4035BDC215BF1C4D6F15E2 /* Pods-GPA Calculator.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "GPA Calculator/GPA Calculator.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R6T6D54FQ;
+				INFOPLIST_FILE = "GPA Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pranavramesh.Scholarly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		82AC4D5D220BB8B5006D501B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF5DF4BBA62A67A3BBBE3819 /* Pods-GPA Calculator.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "GPA Calculator/GPA Calculator.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R6T6D54FQ;
+				INFOPLIST_FILE = "GPA Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pranavramesh.Scholarly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		82AC4D5F220BB8B5006D501B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 632AAA990134CA32AC821FBD /* Pods-GPA CalculatorTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN7BD9PUXN;
+				INFOPLIST_FILE = "GPA CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pranavramesh.GPA-CalculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPA Calculator.app/GPA Calculator";
+			};
+			name = Debug;
+		};
+		82AC4D60220BB8B5006D501B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A572397628B68C458963605 /* Pods-GPA CalculatorTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN7BD9PUXN;
+				INFOPLIST_FILE = "GPA CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pranavramesh.GPA-CalculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPA Calculator.app/GPA Calculator";
+			};
+			name = Release;
+		};
+		82AC4D62220BB8B5006D501B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37BD0CE87063996011B5EA86 /* Pods-GPA CalculatorUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN7BD9PUXN;
+				INFOPLIST_FILE = "GPA CalculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pranavramesh.GPA-CalculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "GPA Calculator";
+			};
+			name = Debug;
+		};
+		82AC4D63220BB8B5006D501B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FF7A1F17BE5E96474998AEC /* Pods-GPA CalculatorUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GN7BD9PUXN;
+				INFOPLIST_FILE = "GPA CalculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pranavramesh.GPA-CalculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "GPA Calculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		82AC4D2B220BB8B4006D501B /* Build configuration list for PBXProject "GPA Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82AC4D59220BB8B5006D501B /* Debug */,
+				82AC4D5A220BB8B5006D501B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82AC4D5B220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82AC4D5C220BB8B5006D501B /* Debug */,
+				82AC4D5D220BB8B5006D501B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82AC4D5E220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82AC4D5F220BB8B5006D501B /* Debug */,
+				82AC4D60220BB8B5006D501B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82AC4D61220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA CalculatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82AC4D62220BB8B5006D501B /* Debug */,
+				82AC4D63220BB8B5006D501B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		82AC4D3A220BB8B4006D501B /* GPA_Calculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				82AC4D3B220BB8B4006D501B /* GPA_Calculator.xcdatamodel */,
+			);
+			currentVersion = 82AC4D3B220BB8B4006D501B /* GPA_Calculator.xcdatamodel */;
+			path = GPA_Calculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 82AC4D28220BB8B4006D501B /* Project object */;
+}

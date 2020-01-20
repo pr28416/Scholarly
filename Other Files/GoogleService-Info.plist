@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>14851297613-p088jjjd9srmbb90mk4c2i80m2e48r8g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.14851297613-p088jjjd9srmbb90mk4c2i80m2e48r8g</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDiSve1I5XedcBZHmhbRyoI00I7YXHb5ik</string>
+	<key>GCM_SENDER_ID</key>
+	<string>14851297613</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.pranavramesh.Scholarly</string>
+	<key>PROJECT_ID</key>
+	<string>scholarly-340d8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>scholarly-340d8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:14851297613:ios:cb8ce67afaa2c9a3</string>
+	<key>DATABASE_URL</key>
+	<string>https://scholarly-340d8.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-7060488987750758~9195144539</string>
+</dict>
+</plist>

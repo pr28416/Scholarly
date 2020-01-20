@@ -1,0 +1,6 @@
+framework module Pods_GPA_Calculator {
+  umbrella header "Pods-GPA Calculator-umbrella.h"
+
+  export *
+  module * { export * }
+}
