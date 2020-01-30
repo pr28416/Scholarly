@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		048B0B6C3127947CD1650FA2 /* Pods_GPA_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CCF1364DE15AB6BA911B32 /* Pods_GPA_Calculator.framework */; };
-		404BD8F1B6B8802BA9F55E6E /* Pods_GPA_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6973C259EAA4A820D967BE9F /* Pods_GPA_CalculatorTests.framework */; };
+		35A821434E25F6CBB8EFB888 /* Pods_GPA_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7097D43CF906FE5F85D0B464 /* Pods_GPA_Calculator.framework */; };
+		7094A9BB90477C9D631DDFC0 /* Pods_GPA_CalculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC25A32CB9AEE5C3D526A2E /* Pods_GPA_CalculatorUITests.framework */; };
 		81569B55233ACB4A009098C8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81569B54233ACB4A009098C8 /* CloudKit.framework */; };
 		819D7FBA233657AA00C8A107 /* Old code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D7FB9233657AA00C8A107 /* Old code.swift */; };
 		81C17C8F2334644500FBFCE8 /* SATScoreBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C17C8E2334644500FBFCE8 /* SATScoreBase.swift */; };
@@ -46,9 +46,10 @@
 		82C392D92238381400E3145B /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D12238381400E3145B /* Nunito-Regular.ttf */; };
 		82C392DA2238381400E3145B /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D22238381400E3145B /* Nunito-Bold.ttf */; };
 		82C392DB2238381400E3145B /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D32238381400E3145B /* Nunito-Medium.ttf */; };
+		82CDC2A023D8C0E0001B88FB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CDC29F23D8C0E0001B88FB /* HomeVC.swift */; };
 		82D75E8622D223BB00FEE95C /* APScoreBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D75E8522D223BB00FEE95C /* APScoreBase.swift */; };
 		82FDD91822498A80005D6553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82FDD91722498A80005D6553 /* GoogleService-Info.plist */; };
-		A13C08B365E4DDFEDC023A19 /* Pods_GPA_CalculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9990500662FF576C9FF6893 /* Pods_GPA_CalculatorUITests.framework */; };
+		A51A46344AA907950BDDA10B /* Pods_GPA_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB71F0484DBFE8AE4B444A8B /* Pods_GPA_CalculatorTests.framework */; };
 		C3E1A413225B8DE1007E231F /* CumulativeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1A412225B8DE1007E231F /* CumulativeCalculator.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,11 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A572397628B68C458963605 /* Pods-GPA CalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorTests/Pods-GPA CalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
-		37BD0CE87063996011B5EA86 /* Pods-GPA CalculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorUITests/Pods-GPA CalculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3FF7A1F17BE5E96474998AEC /* Pods-GPA CalculatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorUITests.release.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorUITests/Pods-GPA CalculatorUITests.release.xcconfig"; sourceTree = "<group>"; };
-		632AAA990134CA32AC821FBD /* Pods-GPA CalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorTests.debug.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorTests/Pods-GPA CalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6973C259EAA4A820D967BE9F /* Pods_GPA_CalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_CalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35B4E4C4BF358E7B1A06A5F6 /* Pods-GPA CalculatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorUITests.release.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorUITests/Pods-GPA CalculatorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7097D43CF906FE5F85D0B464 /* Pods_GPA_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		723E653A87FA09C5A9AB3EDA /* Pods-GPA Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Calculator.release.xcconfig"; path = "Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator.release.xcconfig"; sourceTree = "<group>"; };
+		75E2FB41267A2E3B3D55F2A7 /* Pods-GPA CalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorTests.debug.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorTests/Pods-GPA CalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81569B53233ACB48009098C8 /* GPA Calculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GPA Calculator.entitlements"; sourceTree = "<group>"; };
 		81569B54233ACB4A009098C8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		819D7FB9233657AA00C8A107 /* Old code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Old code.swift"; path = "View Controllers/Old code.swift"; sourceTree = "<group>"; };
@@ -119,13 +119,15 @@
 		82C392D12238381400E3145B /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		82C392D22238381400E3145B /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		82C392D32238381400E3145B /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
+		82CDC29F23D8C0E0001B88FB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		82D75E8522D223BB00FEE95C /* APScoreBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APScoreBase.swift; sourceTree = "<group>"; };
 		82FDD91722498A80005D6553 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		94CCF1364DE15AB6BA911B32 /* Pods_GPA_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE4035BDC215BF1C4D6F15E2 /* Pods-GPA Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Calculator.debug.xcconfig"; path = "Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		BEC25A32CB9AEE5C3D526A2E /* Pods_GPA_CalculatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_CalculatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E1A412225B8DE1007E231F /* CumulativeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeCalculator.swift; sourceTree = "<group>"; };
-		E9990500662FF576C9FF6893 /* Pods_GPA_CalculatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_CalculatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF5DF4BBA62A67A3BBBE3819 /* Pods-GPA Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Calculator.release.xcconfig"; path = "Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator.release.xcconfig"; sourceTree = "<group>"; };
+		E2644F83565F42D31797DE75 /* Pods-GPA CalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorTests/Pods-GPA CalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		FB71F0484DBFE8AE4B444A8B /* Pods_GPA_CalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_CalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC099992800893FCFB8B412B /* Pods-GPA Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Calculator.debug.xcconfig"; path = "Target Support Files/Pods-GPA Calculator/Pods-GPA Calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		FE3856973BB3C49FFC9A2103 /* Pods-GPA CalculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA CalculatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPA CalculatorUITests/Pods-GPA CalculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81569B55233ACB4A009098C8 /* CloudKit.framework in Frameworks */,
-				048B0B6C3127947CD1650FA2 /* Pods_GPA_Calculator.framework in Frameworks */,
+				35A821434E25F6CBB8EFB888 /* Pods_GPA_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				404BD8F1B6B8802BA9F55E6E /* Pods_GPA_CalculatorTests.framework in Frameworks */,
+				A51A46344AA907950BDDA10B /* Pods_GPA_CalculatorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13C08B365E4DDFEDC023A19 /* Pods_GPA_CalculatorUITests.framework in Frameworks */,
+				7094A9BB90477C9D631DDFC0 /* Pods_GPA_CalculatorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,12 +162,12 @@
 		01DD4CF7EAC0412626C6A63B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AE4035BDC215BF1C4D6F15E2 /* Pods-GPA Calculator.debug.xcconfig */,
-				EF5DF4BBA62A67A3BBBE3819 /* Pods-GPA Calculator.release.xcconfig */,
-				632AAA990134CA32AC821FBD /* Pods-GPA CalculatorTests.debug.xcconfig */,
-				1A572397628B68C458963605 /* Pods-GPA CalculatorTests.release.xcconfig */,
-				37BD0CE87063996011B5EA86 /* Pods-GPA CalculatorUITests.debug.xcconfig */,
-				3FF7A1F17BE5E96474998AEC /* Pods-GPA CalculatorUITests.release.xcconfig */,
+				FC099992800893FCFB8B412B /* Pods-GPA Calculator.debug.xcconfig */,
+				723E653A87FA09C5A9AB3EDA /* Pods-GPA Calculator.release.xcconfig */,
+				75E2FB41267A2E3B3D55F2A7 /* Pods-GPA CalculatorTests.debug.xcconfig */,
+				E2644F83565F42D31797DE75 /* Pods-GPA CalculatorTests.release.xcconfig */,
+				FE3856973BB3C49FFC9A2103 /* Pods-GPA CalculatorUITests.debug.xcconfig */,
+				35B4E4C4BF358E7B1A06A5F6 /* Pods-GPA CalculatorUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -244,6 +246,7 @@
 				82698BF22213806100B3C10E /* Table Cells */,
 				82AC4D33220BB8B4006D501B /* AppDelegate.swift */,
 				82AC4D37220BB8B4006D501B /* Main.storyboard */,
+				82CDC29F23D8C0E0001B88FB /* HomeVC.swift */,
 				82AC4D3D220BB8B5006D501B /* Assets.xcassets */,
 				82AC4D3F220BB8B5006D501B /* LaunchScreen.storyboard */,
 				82AC4D42220BB8B5006D501B /* Info.plist */,
@@ -300,9 +303,9 @@
 			isa = PBXGroup;
 			children = (
 				81569B54233ACB4A009098C8 /* CloudKit.framework */,
-				94CCF1364DE15AB6BA911B32 /* Pods_GPA_Calculator.framework */,
-				6973C259EAA4A820D967BE9F /* Pods_GPA_CalculatorTests.framework */,
-				E9990500662FF576C9FF6893 /* Pods_GPA_CalculatorUITests.framework */,
+				7097D43CF906FE5F85D0B464 /* Pods_GPA_Calculator.framework */,
+				FB71F0484DBFE8AE4B444A8B /* Pods_GPA_CalculatorTests.framework */,
+				BEC25A32CB9AEE5C3D526A2E /* Pods_GPA_CalculatorUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -314,11 +317,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82AC4D5B220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA Calculator" */;
 			buildPhases = (
-				02B1230FA7338300121411F5 /* [CP] Check Pods Manifest.lock */,
+				E174F52B35A839D289D505BB /* [CP] Check Pods Manifest.lock */,
 				82AC4D2C220BB8B4006D501B /* Sources */,
 				82AC4D2D220BB8B4006D501B /* Frameworks */,
 				82AC4D2E220BB8B4006D501B /* Resources */,
-				63C2760E80E16D3EAA2E9345 /* [CP] Embed Pods Frameworks */,
+				F1A3B78D02207B5758257044 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,7 +336,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82AC4D5E220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA CalculatorTests" */;
 			buildPhases = (
-				500977C3D172153EC69791D0 /* [CP] Check Pods Manifest.lock */,
+				233EF55875F46FC045C4F538 /* [CP] Check Pods Manifest.lock */,
 				82AC4D43220BB8B5006D501B /* Sources */,
 				82AC4D44220BB8B5006D501B /* Frameworks */,
 				82AC4D45220BB8B5006D501B /* Resources */,
@@ -352,7 +355,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82AC4D61220BB8B5006D501B /* Build configuration list for PBXNativeTarget "GPA CalculatorUITests" */;
 			buildPhases = (
-				4994C417BCB2F8D69B355B70 /* [CP] Check Pods Manifest.lock */,
+				87118C9DBD90322B84009D79 /* [CP] Check Pods Manifest.lock */,
 				82AC4D4E220BB8B5006D501B /* Sources */,
 				82AC4D4F220BB8B5006D501B /* Frameworks */,
 				82AC4D50220BB8B5006D501B /* Resources */,
@@ -459,51 +462,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02B1230FA7338300121411F5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GPA Calculator-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4994C417BCB2F8D69B355B70 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GPA CalculatorUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		500977C3D172153EC69791D0 /* [CP] Check Pods Manifest.lock */ = {
+		233EF55875F46FC045C4F538 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -525,7 +484,51 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63C2760E80E16D3EAA2E9345 /* [CP] Embed Pods Frameworks */ = {
+		87118C9DBD90322B84009D79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPA CalculatorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E174F52B35A839D289D505BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPA Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1A3B78D02207B5758257044 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -550,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C17C8F2334644500FBFCE8 /* SATScoreBase.swift in Sources */,
+				82CDC2A023D8C0E0001B88FB /* HomeVC.swift in Sources */,
 				82AC4D67220BC6EA006D501B /* classCell.swift in Sources */,
 				82698C122215A9C300B3C10E /* GPAEditor.swift in Sources */,
 				82D75E8622D223BB00FEE95C /* APScoreBase.swift in Sources */,
@@ -734,7 +738,7 @@
 		};
 		82AC4D5C220BB8B5006D501B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE4035BDC215BF1C4D6F15E2 /* Pods-GPA Calculator.debug.xcconfig */;
+			baseConfigurationReference = FC099992800893FCFB8B412B /* Pods-GPA Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "GPA Calculator/GPA Calculator.entitlements";
@@ -756,7 +760,7 @@
 		};
 		82AC4D5D220BB8B5006D501B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF5DF4BBA62A67A3BBBE3819 /* Pods-GPA Calculator.release.xcconfig */;
+			baseConfigurationReference = 723E653A87FA09C5A9AB3EDA /* Pods-GPA Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "GPA Calculator/GPA Calculator.entitlements";
@@ -778,7 +782,7 @@
 		};
 		82AC4D5F220BB8B5006D501B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 632AAA990134CA32AC821FBD /* Pods-GPA CalculatorTests.debug.xcconfig */;
+			baseConfigurationReference = 75E2FB41267A2E3B3D55F2A7 /* Pods-GPA CalculatorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -800,7 +804,7 @@
 		};
 		82AC4D60220BB8B5006D501B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A572397628B68C458963605 /* Pods-GPA CalculatorTests.release.xcconfig */;
+			baseConfigurationReference = E2644F83565F42D31797DE75 /* Pods-GPA CalculatorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -822,7 +826,7 @@
 		};
 		82AC4D62220BB8B5006D501B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37BD0CE87063996011B5EA86 /* Pods-GPA CalculatorUITests.debug.xcconfig */;
+			baseConfigurationReference = FE3856973BB3C49FFC9A2103 /* Pods-GPA CalculatorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -843,7 +847,7 @@
 		};
 		82AC4D63220BB8B5006D501B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FF7A1F17BE5E96474998AEC /* Pods-GPA CalculatorUITests.release.xcconfig */;
+			baseConfigurationReference = 35B4E4C4BF358E7B1A06A5F6 /* Pods-GPA CalculatorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

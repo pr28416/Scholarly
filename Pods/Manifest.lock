@@ -113,7 +113,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -157,4 +157,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: adadc2a7191a995aa9e7c13a1deff61bffcf0c3b
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4
