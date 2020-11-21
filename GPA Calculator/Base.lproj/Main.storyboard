@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17700" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s51-0z-IJQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s51-0z-IJQ">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1036,12 +1036,36 @@
                         <outlet property="cumulativeCalculator" destination="L1r-M5-LaW" id="SsS-sX-Rzc"/>
                         <outlet property="gpaWeightingCalculator" destination="8rB-Bn-urD" id="tZV-17-cLi"/>
                         <outlet property="testScoreCalculator" destination="sgm-wL-SEq" id="V0H-tw-9h7"/>
-                        <segue destination="PBN-LX-fKc" kind="presentation" identifier="createNewGradeSheetSegue" modalPresentationStyle="fullScreen" id="sza-nm-XiC"/>
+                        <segue destination="ICH-dX-a90" kind="presentation" identifier="createNewGradeSheetSegue" modalPresentationStyle="fullScreen" id="tIz-YH-BoY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daw-ts-M3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3106.4000000000001" y="-237.93103448275863"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Nw-6w-wVp">
+            <objects>
+                <navigationController id="ICH-dX-a90" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ZYk-Mj-FGc">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="Primary Blue"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="Primary Blue"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="v2z-T3-X2u" kind="relationship" relationship="rootViewController" id="4fH-co-wqq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvk-40-Khh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3959" y="-239"/>
         </scene>
         <!--Grade Sheet Editor-->
         <scene sceneID="OX8-S2-FE1">
@@ -1063,7 +1087,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZ3-pC-laj" customClass="ShadowView" customModule="GPA_Calculator" customModuleProvider="target">
-                                                    <rect key="frame" x="22" y="11" width="337" height="138"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="138"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="No8-f9-Znx">
                                                             <rect key="frame" x="12" y="12" width="71.333333333333329" height="114"/>
@@ -1077,17 +1101,18 @@
                                                             </connections>
                                                         </pickerView>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8m1-O9-Hup">
-                                                            <rect key="frame" x="91.333333333333329" y="12" width="233.66666666666669" height="34"/>
+                                                            <rect key="frame" x="91.333333333333329" y="12" width="239.66666666666669" height="34"/>
                                                             <color key="backgroundColor" name="List View Background"/>
                                                             <color key="textColor" name="Primary Label Text"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
+                                                                <action selector="textFieldChanged:" destination="v2z-T3-X2u" eventType="editingChanged" id="TRv-zX-f1o"/>
                                                                 <outlet property="delegate" destination="v2z-T3-X2u" id="LO2-Tj-Jqi"/>
                                                             </connections>
                                                         </textField>
                                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-zj-k1a">
-                                                            <rect key="frame" x="91.333333333333329" y="54" width="233.66666666666669" height="32"/>
+                                                            <rect key="frame" x="91.333333333333329" y="54" width="239.66666666666669" height="32"/>
                                                             <segments>
                                                                 <segment title="Standard"/>
                                                                 <segment title="Honors"/>
@@ -1136,20 +1161,12 @@
                                                         <constraint firstItem="8Hh-zj-k1a" firstAttribute="top" secondItem="8m1-O9-Hup" secondAttribute="bottom" constant="8" id="zQZ-AC-4C7"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFg-JC-4qB">
-                                                    <rect key="frame" x="8" y="72.333333333333329" width="6" height="15.666666666666671"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" name="Secondary Label Text"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="aZ3-pC-laj" firstAttribute="top" secondItem="za7-EL-ZLz" secondAttribute="topMargin" id="8xC-q0-RH3"/>
                                                 <constraint firstItem="aZ3-pC-laj" firstAttribute="bottom" secondItem="za7-EL-ZLz" secondAttribute="bottomMargin" id="Epu-Ku-0ah"/>
-                                                <constraint firstItem="DFg-JC-4qB" firstAttribute="centerY" secondItem="aZ3-pC-laj" secondAttribute="centerY" id="LFL-F1-xec"/>
-                                                <constraint firstItem="aZ3-pC-laj" firstAttribute="leading" secondItem="DFg-JC-4qB" secondAttribute="trailing" constant="8" id="Lr5-4n-4xo"/>
-                                                <constraint firstItem="DFg-JC-4qB" firstAttribute="leading" secondItem="za7-EL-ZLz" secondAttribute="leading" constant="8" id="aFT-LH-8Q2"/>
+                                                <constraint firstItem="aZ3-pC-laj" firstAttribute="leading" secondItem="za7-EL-ZLz" secondAttribute="leadingMargin" id="LAb-sc-k7c"/>
                                                 <constraint firstItem="aZ3-pC-laj" firstAttribute="trailing" secondItem="za7-EL-ZLz" secondAttribute="trailingMargin" id="cR3-8f-SDz"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1159,7 +1176,6 @@
                                             <outlet property="creditLabel" destination="ToL-BM-CKU" id="SAF-CD-gMK"/>
                                             <outlet property="creditStepper" destination="osK-rp-VLA" id="NnP-Ya-I2o"/>
                                             <outlet property="gradePicker" destination="No8-f9-Znx" id="TId-hk-lOx"/>
-                                            <outlet property="rowNumber" destination="DFg-JC-4qB" id="PsB-6r-Qhg"/>
                                             <outlet property="subjectName" destination="8m1-O9-Hup" id="DHv-38-NkU"/>
                                             <outlet property="subjectType" destination="8Hh-zj-k1a" id="BeK-jL-HsE"/>
                                         </connections>
@@ -1174,17 +1190,14 @@
                                 <rect key="frame" x="0.0" y="641" width="375" height="49"/>
                                 <color key="backgroundColor" name="Primary Background"/>
                                 <items>
-                                    <barButtonItem systemItem="edit" id="HhX-Im-z5D">
+                                    <barButtonItem title="Edit" id="hQS-ug-NZ0">
                                         <color key="tintColor" name="Primary Blue"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="Debug Print" id="G4R-IV-Cef">
-                                        <color key="tintColor" name="Primary Red"/>
                                         <connections>
-                                            <action selector="debugPrintClicked:" destination="v2z-T3-X2u" id="5pT-nv-YvM"/>
+                                            <action selector="editButtonPressed:" destination="v2z-T3-X2u" id="wrL-uR-Jfm"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2GF-VT-EOG"/>
-                                    <barButtonItem title="Options" style="done" id="5gM-71-KBY">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yBD-dV-Ux8"/>
+                                    <barButtonItem title="Options" style="done" id="2TT-Um-U3K">
                                         <color key="tintColor" name="Primary Blue"/>
                                     </barButtonItem>
                                 </items>
@@ -1271,27 +1284,74 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Grade Sheet Editor" id="Ucx-0Q-3Ha">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="hEe-aQ-TNU"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="eoI-JX-FBC">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="close:" destination="v2z-T3-X2u" id="WtP-E1-6d5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="zEG-Ty-b2P">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="hJY-nw-Ezh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="savePressed:" destination="v2z-T3-X2u" id="m5p-6q-Ga5"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addSubjectButton" destination="XVG-pB-XLI" id="KxD-pM-GOZ"/>
+                        <outlet property="editButton" destination="hQS-ug-NZ0" id="hXB-xc-eDP"/>
+                        <outlet property="optionsButton" destination="2TT-Um-U3K" id="u1T-7K-KMU"/>
                         <outlet property="tableView" destination="rDm-H1-27z" id="j7R-Pc-NgF"/>
+                        <outlet property="toolbar" destination="DSM-02-7KW" id="QTW-3j-4Ll"/>
                         <outlet property="topBar" destination="1l7-Vn-XFb" id="mmE-sp-933"/>
                         <outlet property="unweightedLabel" destination="kES-Qh-7XV" id="QEi-Az-RVX"/>
                         <outlet property="weightedLabel" destination="uaK-IM-SRP" id="cM9-tn-li0"/>
+                        <segue destination="7Qk-qi-nWR" kind="show" identifier="showCustomGPAPickerVC" id="7Ye-7X-Cwf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h96-gv-dju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4847.1999999999998" y="-238.66995073891627"/>
+        </scene>
+        <!--CustomGPA PickerVC-->
+        <scene sceneID="jDn-R0-8eh">
+            <objects>
+                <tableViewController id="7Qk-qi-nWR" customClass="CustomGPAPickerVC" customModule="GPA_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="8Lj-Yg-q8n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="List View Background"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customGPAPickerCell" textLabel="4Xp-Zd-7zn" style="IBUITableViewCellStyleDefault" id="xaM-LF-t9N">
+                                <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xaM-LF-t9N" id="1YP-Hr-9j8">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Xp-Zd-7zn">
+                                            <rect key="frame" x="16" y="0.0" width="311" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                            <color key="textColor" name="Primary Label Text"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="List Cell Background"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7Qk-qi-nWR" id="C8y-PE-gWe"/>
+                            <outlet property="delegate" destination="7Qk-qi-nWR" id="gM6-nq-xRe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" prompt="Pick a custom GPA weighting list from below" id="amQ-mg-QDH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0z6-Lv-KuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5591" y="-239"/>
         </scene>
         <!--Cumulative Calculator-->
         <scene sceneID="ZEn-tL-iJS">
@@ -1443,7 +1503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aD-Kj-R97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6031.884057971015" y="23.4375"/>
+            <point key="canvasLocation" x="4847" y="543"/>
         </scene>
         <!--My GPA Sheets-->
         <scene sceneID="pbW-Ot-P1L">
@@ -2462,32 +2522,6 @@
             </objects>
             <point key="canvasLocation" x="2197.1014492753625" y="-237.72321428571428"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dle-G0-WgJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PBN-LX-fKc" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="3gS-L4-3Lf"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="lHb-ks-Kwd">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="Primary Blue"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" name="Primary Blue"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="v2z-T3-X2u" kind="relationship" relationship="rootViewController" id="Wrf-me-gKm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gKS-cQ-yPV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3937.68115942029" y="-238.39285714285714"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="e5h-Vf-VpF"/>
@@ -2545,7 +2579,7 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary Blue">
-            <color red="0.16284751572928211" green="0.36423653375647586" blue="0.68774968385696411" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.16300000250339508" green="0.36399999260902405" blue="0.68800002336502075" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Primary Indigo">
             <color red="0.090000003576278687" green="0.16899999976158142" blue="0.30199998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2553,14 +2587,8 @@
         <namedColor name="Primary Label Text">
             <color red="0.030999999493360519" green="0.030999999493360519" blue="0.039000000804662704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Primary Red">
-            <color red="1" green="0.33700001239776611" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Primary Yellow">
             <color red="0.93800002336502075" green="0.71399998664855957" blue="0.24799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="Secondary Label Text">
-            <color red="0.3880000114440918" green="0.3880000114440918" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -43,11 +43,15 @@ class Global {
         customGPAs = []
     }
     
-    /// Create a new Global object with gradesheets and custom GPAs
-    init(gradeSheets: [GradeSheet], customGPAs: [CustomGPA]) {
-        self.gradeSheets = gradeSheets
-        self.customGPAs = customGPAs
+    /// Initialize main instance
+    func configure() {
+        retrieveData()
     }
+    
+//    init(gradeSheets: [GradeSheet], customGPAs: [CustomGPA]) {
+//        self.gradeSheets = gradeSheets
+//        self.customGPAs = customGPAs
+//    }
     
     /// Returns the letter grade given the index number (range: [0, 12])
     func gradeLetter(for index: Int) -> String {
@@ -66,7 +70,41 @@ class Global {
     
     /// Retrieve data from UserDefaults
     func retrieveData() {
-        
+        self.customGPAs = [
+            // Default 4.5
+            CustomGPA(title: "Default 4.5 Scale", chart: [
+                "A+": Weight(standard: 4.33, honors: 4.83, advanced: 5.33),
+                "A": Weight(standard: 4.00, honors: 4.50, advanced: 5.00),
+                "A-": Weight(standard: 3.67, honors: 4.17, advanced: 4.67),
+                "B+": Weight(standard: 3.33, honors: 3.83, advanced: 4.33),
+                "B": Weight(standard: 3.00, honors: 3.50, advanced: 4.00),
+                "B-": Weight(standard: 2.67, honors: 3.17, advanced: 3.67),
+                "C+": Weight(standard: 2.33, honors: 2.83, advanced: 3.33),
+                "C": Weight(standard: 2.00, honors: 2.50, advanced: 3.00),
+                "C-": Weight(standard: 1.67, honors: 2.17, advanced: 2.67),
+                "D+": Weight(standard: 1.33, honors: 1.83, advanced: 2.33),
+                "D": Weight(standard: 1.00, honors: 1.50, advanced: 2.00),
+                "D-": Weight(standard: 0.67, honors: 1.17, advanced: 1.67),
+                "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
+            ]),
+            
+            // Default 4.3
+            CustomGPA(title: "Default 4.3 Scale", chart: [
+                "A+": Weight(standard: 4.33, honors: 4.67, advanced: 5.00),
+                "A": Weight(standard: 4.00, honors: 4.33, advanced: 4.67),
+                "A-": Weight(standard: 3.67, honors: 4.00, advanced: 4.33),
+                "B+": Weight(standard: 3.33, honors: 3.67, advanced: 4.00),
+                "B": Weight(standard: 3.00, honors: 3.33, advanced: 3.67),
+                "B-": Weight(standard: 2.67, honors: 3.00, advanced: 3.33),
+                "C+": Weight(standard: 2.33, honors: 2.67, advanced: 3.00),
+                "C": Weight(standard: 2.00, honors: 2.33, advanced: 2.67),
+                "C-": Weight(standard: 1.67, honors: 2.00, advanced: 2.33),
+                "D+": Weight(standard: 1.33, honors: 1.67, advanced: 2.00),
+                "D": Weight(standard: 1.00, honors: 1.33, advanced: 1.67),
+                "D-": Weight(standard: 0.67, honors: 1.00, advanced: 1.33),
+                "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
+            ])
+        ]
     }
 }
 
@@ -123,17 +161,7 @@ class GradeSheet: CustomStringConvertible {
     
     /// Move grade from one index to another
     func moveGrade(from startIdx: Int, to endIdx: Int) {
-        let start = max(0, startIdx)
-        let end = min(self.grades.count-1, endIdx)
-        if start < end {
-            for i in start..<end {
-                self.grades.swapAt(i, i+1)
-            }
-        } else {
-            for i in stride(from: end, to: start, by: -1) {
-                self.grades.swapAt(i, i-1)
-            }
-        }
+        self.grades.insert(self.grades.remove(at: max(0, startIdx)), at: min(self.grades.count, endIdx))
     }
     
     /// Remove and return a GradeItem at an index
@@ -151,6 +179,33 @@ class GradeSheet: CustomStringConvertible {
         }
         guard let index = i else {return nil}
         return self.removeGrade(index: index)
+    }
+    
+    /// Calculate and return unweighted GPA
+    func getUnweightedGPA() -> Double {
+        guard grades.count > 0 else {return 0.0}
+        let weights = [4.33, 4.0, 3.67, 3.33, 3.0, 2.67, 2.33, 2.0, 1.67, 1.33, 1.0, 0.67, 0]
+        var avg = 0.0
+        for i in grades {
+            avg += weights[i.gradeIndex]
+        }
+        return avg / Double(grades.count)
+    }
+    
+    /// Calculate and return weighted GPA
+    func getWeightedGPA(scale: CustomGPA) -> Double {
+        var avg = 0.0
+        var creditSum = 0.0
+        for grade in grades {
+            switch grade.classType {
+            case .standard: avg += grade.credits * scale.getWeights(letter: Global.main.gradeLetter(for: grade.gradeIndex)).standard
+            case .honors: avg += grade.credits * scale.getWeights(letter: Global.main.gradeLetter(for: grade.gradeIndex)).honors
+            case .advanced: avg += grade.credits * scale.getWeights(letter: Global.main.gradeLetter(for: grade.gradeIndex)).advanced
+            }
+            creditSum += grade.credits
+        }
+        guard creditSum > 0 else {return 0.0}
+        return avg / creditSum
     }
 }
 

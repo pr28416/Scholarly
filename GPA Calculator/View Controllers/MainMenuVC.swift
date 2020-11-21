@@ -25,6 +25,7 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let vc = (segue.destination as! UINavigationController).viewControllers[0] as! GradeSheetEditorVC
             vc.gradeSheet = GradeSheet()
             vc.gradeSheet.addGrade()
+            vc.selectedCustomGPA = Global.main.customGPAs[0]
         }
     }
     

@@ -10,16 +10,17 @@ import UIKit
 
 class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    @IBAction func debugPrintClicked(_ sender: Any) {
-        print(gradeSheet!)
-    }
-    
-    /// Class name field changed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let cell = textField.superview?.superview?.superview as! GradeSheetCell
         cell.gradeItem.className = textField.text ?? ""
         textField.resignFirstResponder()
         return true
+    }
+    
+    /// Class name field changed
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        let cell = sender.superview?.superview?.superview as! GradeSheetCell
+        cell.gradeItem.className = sender.text ?? ""
     }
     
     /// Class type segmented control changed
@@ -31,6 +32,7 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
         case 2: cell.gradeItem.classType = .advanced
         default: break
         }
+        updateWeightedGPA()
     }
     
     /// Credits stepper changed
@@ -38,12 +40,15 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
         let cell = sender.superview?.superview?.superview as! GradeSheetCell
         cell.gradeItem.credits = sender.value
         cell.creditLabel.text = "\(sender.value)"
+        updateWeightedGPA()
     }
     
     /// Grade picker changed
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let cell = pickerView.superview?.superview?.superview as! GradeSheetCell
         cell.gradeItem.gradeIndex = row
+        updateUnweightedGPA()
+        updateWeightedGPA()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -54,8 +59,8 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
         return Global.main.letterGrades.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Global.main.letterGrades[row]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: Global.main.letterGrades[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,16 +72,32 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
         cell.gradeItem = gradeSheet.getGrade(at: indexPath.row)
         cell.gradePicker.layer.cornerRadius = 10
         cell.creditLabel.text = "0.0"
-        cell.rowNumber.text = "\(indexPath.row+1)"
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let removedGrade = gradeSheet.removeGrade(index: indexPath.row)
+            print("Removed grade:\n\t\(removedGrade)")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            updateUnweightedGPA()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        gradeSheet.moveGrade(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+    
     var gradeSheet: GradeSheet!
+    var selectedCustomGPA: CustomGPA!
     @IBOutlet weak var unweightedLabel: UILabel!
     @IBOutlet weak var weightedLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addSubjectButton: UIButton!
     @IBOutlet weak var topBar: UIView!
+    @IBOutlet weak var optionsButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,20 +105,85 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.shadowImage = UIImage()
         topBar.layer.cornerRadius = 20
         topBar.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        optionsButton.primaryAction = nil
+        optionsButton.menu = UIMenu(title: "", children: [
+            UIAction(title: "Select GPA type", image: UIImage(systemName: "doc.text.magnifyingglass"), identifier: nil, discoverabilityTitle: nil, state: .off, handler: { (action) in
+                print("Select GPA type option pressed")
+                self.performSegue(withIdentifier: "showCustomGPAPickerVC", sender: nil)
+            }),
+            UIAction(title: "Debug print", image: UIImage(systemName: "terminal"), identifier: nil, discoverabilityTitle: nil, state: .off, handler: { (action) in
+                print("Debug print option pressed")
+                print(self.gradeSheet!)
+            }),
+        ])
+        
+        updateUnweightedGPA()
+        updateWeightedGPA()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            tableView.contentInset = .zero
+        } else {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        tableView.scrollIndicatorInsets = tableView.contentInset
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUnweightedGPA()
+        updateWeightedGPA()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCustomGPAPickerVC" {
+            let vc = segue.destination as! CustomGPAPickerVC
+            vc.previousViewController = self
+        }
     }
     
     @IBAction func addSubjectPressed(_ sender: UIButton) {
         gradeSheet.addGrade()
         tableView.insertRows(at: [IndexPath(row: gradeSheet.grades.count-1, section: 0)], with: .bottom)
+        updateUnweightedGPA()
+        updateWeightedGPA()
+    }
+    
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        editButton.title = tableView.isEditing ? "Done" : "Edit"
+        editButton.style = tableView.isEditing ? .done : .plain
+    }
+    
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
     }
     
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func updateUnweightedGPA() {
+        unweightedLabel.text = "\(round(gradeSheet.getUnweightedGPA()*10000.0)/10000.0)"
+    }
+    
+    func updateWeightedGPA() {
+        weightedLabel.text = "\(round(gradeSheet.getWeightedGPA(scale: selectedCustomGPA)*10000.0)/10000.0)"
+    }
 }
 
 class GradeSheetCell: UITableViewCell {
-    @IBOutlet weak var rowNumber: UILabel!
     @IBOutlet weak var backView: ShadowView!
     @IBOutlet weak var gradePicker: UIPickerView!
     @IBOutlet weak var subjectName: UITextField!

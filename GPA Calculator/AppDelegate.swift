@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.layer.masksToBounds = true
         window?.layer.cornerRadius = 12
         FirebaseApp.configure()
+        Global.main.configure()
         return true
     }
 
