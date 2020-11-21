@@ -20,10 +20,29 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return tableView.dequeueReusableCell(withIdentifier: "RecentGradeSheetCell", for: indexPath)
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createNewGradeSheetSegue" {
+            let vc = (segue.destination as! UINavigationController).viewControllers[0] as! GradeSheetEditorVC
+            vc.gradeSheet = GradeSheet()
+            vc.gradeSheet.addGrade()
+        }
+    }
+    
+    @IBAction func pressedCreateNewGradeSheet(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "createNewGradeSheetSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        createNewGradeSheet.backgroundColor = UIColor.atlassian.primaryBlue
+        cumulativeCalculator.backgroundColor = UIColor.atlassian.primaryGreen
+        gpaWeightingCalculator.backgroundColor = UIColor.atlassian.primaryRed
+        testScoreCalculator.backgroundColor = UIColor.atlassian.primaryYellow
+        
+//        createNewGradeSheet.layoutIfNeeded()
+//        cumulativeCalculator.layoutIfNeeded()
+//        gpaWeightingCalculator.layoutIfNeeded()
+//        testScoreCalculator.layoutIfNeeded()
     }
     @IBOutlet weak var createNewGradeSheet: ShadowView!
     @IBOutlet weak var cumulativeCalculator: ShadowView!

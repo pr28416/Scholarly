@@ -6,7 +6,28 @@
 //  Copyright © 2020 Pranav Ramesh. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIColor {
+    struct atlassian {
+        // Static colors
+        static let primaryBlue = UIColor(named: "Primary Blue")!
+        static let primaryCyan = UIColor(named: "Primary Cyan")!
+        static let primaryGreen = UIColor(named: "Primary Green")!
+        static let primaryIndigo = UIColor(named: "Primary Indigo")!
+        static let primaryPurple = UIColor(named: "Primary Purple")!
+        static let primaryRed = UIColor(named: "Primary Red")!
+        static let primaryYellow = UIColor(named: "Primary Yellow")!
+        
+        // Text and background
+        static let listCellBackground = UIColor(named: "List Cell Background")
+        static let listViewBackground = UIColor(named: "List View Background")
+        static let primaryBackground = UIColor(named: "Primary Background")
+        static let primaryLabel = UIColor(named: "Primary Label Text")
+        static let secondaryBackground = UIColor(named: "Secondary Background")
+        static let secondaryLabel = UIColor(named: "Secondary Label Text")
+    }
+}
 
 class Global {
     static var main = Global()
@@ -49,7 +70,16 @@ class Global {
     }
 }
 
-class GradeSheet {
+class GradeSheet: CustomStringConvertible {
+    
+    var description: String {
+        var s = "\(title), \(uuid):\n"
+        for i in self.grades {
+            s += "\t" + i.description + "\n"
+        }
+        return s
+    }
+    
     var title: String
     var grades: [GradeItem]
     var uuid: String
@@ -64,6 +94,26 @@ class GradeSheet {
         self.title = ""
         self.grades = []
         self.uuid = UUID().uuidString
+    }
+    
+    /// Get grade at index
+    func getGrade(at index: Int) -> GradeItem {
+        if index < 0 || index >= self.grades.count {
+            fatalError("Attempted to remove a grade from a nonexistent index:\n\tLength: \(self.grades.count) Requested index: \(index)")
+        }
+        return self.grades[index]
+    }
+    
+    /// Get index given grade
+    func index(of grade: GradeItem) -> Int? {
+        return self.grades.firstIndex { (item) -> Bool in
+            item.uuid == grade.uuid
+        }
+    }
+    
+    /// Add an empty grade
+    func addGrade() {
+        self.grades.append(GradeItem(name: "", classType: .standard, credits: 0, gradeIndex: 0))
     }
     
     /// Add a grade using an existing GradeItem object to the end of the list
@@ -104,7 +154,9 @@ class GradeSheet {
     }
 }
 
-class GradeItem {
+class GradeItem: CustomStringConvertible {
+    var description: String { return "\(className), \(classType), \(credits), \(Global.main.gradeLetter(for: gradeIndex)), \(uuid), \(timestamp)" }
+    
     var className: String
     var classType: ClassType
     var credits: Double
@@ -151,19 +203,19 @@ class CustomGPA {
     /// Resets the chart
     func reset() {
         chart = [
-            "A+": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "A": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "A-": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "B+": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "B": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "B-": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "C+": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "C": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "C-": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "D+": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "D": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "D-": Weight(collegePrep: 0, honors: 0, ap: 0),
-            "F": Weight(collegePrep: 0, honors: 0, ap: 0),
+            "A+": Weight(standard: 0, honors: 0, advanced: 0),
+            "A": Weight(standard: 0, honors: 0, advanced: 0),
+            "A-": Weight(standard: 0, honors: 0, advanced: 0),
+            "B+": Weight(standard: 0, honors: 0, advanced: 0),
+            "B": Weight(standard: 0, honors: 0, advanced: 0),
+            "B-": Weight(standard: 0, honors: 0, advanced: 0),
+            "C+": Weight(standard: 0, honors: 0, advanced: 0),
+            "C": Weight(standard: 0, honors: 0, advanced: 0),
+            "C-": Weight(standard: 0, honors: 0, advanced: 0),
+            "D+": Weight(standard: 0, honors: 0, advanced: 0),
+            "D": Weight(standard: 0, honors: 0, advanced: 0),
+            "D-": Weight(standard: 0, honors: 0, advanced: 0),
+            "F": Weight(standard: 0, honors: 0, advanced: 0),
         ]
     }
     
@@ -175,14 +227,13 @@ class CustomGPA {
 }
 
 struct Weight {
-    var collegePrep: Double
+    var standard: Double
     var honors: Double
-    var ap: Double
+    var advanced: Double
 }
 
 enum ClassType: String {
-    case collegePrep = "College Prep"
+    case standard = "Standard"
     case honors = "Honors"
-    case ap = "Advanced Placement"
-    case ib = "International Baccalaureate"
+    case advanced = "AP/IB"
 }

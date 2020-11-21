@@ -311,8 +311,7 @@
 		823B4C512566DDCB00F54319 /* SF-Compact-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 823B4B292566DDCA00F54319 /* SF-Compact-Display-Light.otf */; };
 		823B4C522566DDCB00F54319 /* SF-Compact-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 823B4B292566DDCA00F54319 /* SF-Compact-Display-Light.otf */; };
 		823B4C572566E4AC00F54319 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823B4C562566E4AC00F54319 /* MainMenuVC.swift */; };
-		823B4C582566E4AC00F54319 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823B4C562566E4AC00F54319 /* MainMenuVC.swift */; };
-		823B4C592566E4AC00F54319 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823B4C562566E4AC00F54319 /* MainMenuVC.swift */; };
+		824D30F425682AAE004035E3 /* GradeSheetEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824D30F325682AAE004035E3 /* GradeSheetEditorVC.swift */; };
 		825D1F462566EC3B00C770AA /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825D1F452566EC3B00C770AA /* ShadowView.swift */; };
 		82698BF02213803700B3C10E /* FolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698BEF2213803700B3C10E /* FolderController.swift */; };
 		82698BF62213809C00B3C10E /* folderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698BF52213809C00B3C10E /* folderCell.swift */; };
@@ -481,7 +480,8 @@
 		823B4B272566DDCA00F54319 /* SF-Compact-Text-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Text-UltralightItalic.otf"; sourceTree = "<group>"; };
 		823B4B282566DDCA00F54319 /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
 		823B4B292566DDCA00F54319 /* SF-Compact-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Light.otf"; sourceTree = "<group>"; };
-		823B4C562566E4AC00F54319 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainMenuVC.swift; path = "View Controllers/MainMenuVC.swift"; sourceTree = "<group>"; };
+		823B4C562566E4AC00F54319 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
+		824D30F325682AAE004035E3 /* GradeSheetEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSheetEditorVC.swift; sourceTree = "<group>"; };
 		825D1F452566EC3B00C770AA /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		82698BEF2213803700B3C10E /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; };
 		82698BF52213809C00B3C10E /* folderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = folderCell.swift; sourceTree = "<group>"; };
@@ -703,6 +703,8 @@
 		82698BF12213804400B3C10E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				823B4C562566E4AC00F54319 /* MainMenuVC.swift */,
+				824D30F325682AAE004035E3 /* GradeSheetEditorVC.swift */,
 				82698BEF2213803700B3C10E /* FolderController.swift */,
 				82AC4D6A220FD454006D501B /* GPACalcHome.swift */,
 				81C17C8E2334644500FBFCE8 /* SATScoreBase.swift */,
@@ -768,14 +770,13 @@
 		82AC4D32220BB8B4006D501B /* GPA Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				81569B53233ACB48009098C8 /* GPA Calculator.entitlements */,
 				825D1F4A2566EC3F00C770AA /* Custom Views */,
 				823B4A9A2566C0A800F54319 /* Resources */,
-				81569B53233ACB48009098C8 /* GPA Calculator.entitlements */,
 				82698BF12213804400B3C10E /* View Controllers */,
 				82698BF22213806100B3C10E /* Table Cells */,
 				82AC4D33220BB8B4006D501B /* AppDelegate.swift */,
 				82AC4D37220BB8B4006D501B /* Main.storyboard */,
-				823B4C562566E4AC00F54319 /* MainMenuVC.swift */,
 				82AC4D3D220BB8B5006D501B /* Assets.xcassets */,
 				82AC4D3F220BB8B5006D501B /* LaunchScreen.storyboard */,
 				82AC4D42220BB8B5006D501B /* Info.plist */,
@@ -1380,6 +1381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C17C8F2334644500FBFCE8 /* SATScoreBase.swift in Sources */,
+				824D30F425682AAE004035E3 /* GradeSheetEditorVC.swift in Sources */,
 				82CDC2A023D8C0E0001B88FB /* HomeVC.swift in Sources */,
 				82AC4D67220BC6EA006D501B /* classCell.swift in Sources */,
 				82698C122215A9C300B3C10E /* GPAEditor.swift in Sources */,
@@ -1403,7 +1405,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				823B4C582566E4AC00F54319 /* MainMenuVC.swift in Sources */,
 				82AC4D4C220BB8B5006D501B /* GPA_CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1412,7 +1413,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				823B4C592566E4AC00F54319 /* MainMenuVC.swift in Sources */,
 				82AC4D57220BB8B5006D501B /* GPA_CalculatorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
