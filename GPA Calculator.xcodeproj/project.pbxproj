@@ -12,6 +12,7 @@
 		81569B55233ACB4A009098C8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81569B54233ACB4A009098C8 /* CloudKit.framework */; };
 		819D7FBA233657AA00C8A107 /* Old code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D7FB9233657AA00C8A107 /* Old code.swift */; };
 		81C17C8F2334644500FBFCE8 /* SATScoreBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C17C8E2334644500FBFCE8 /* SATScoreBase.swift */; };
+		820A4B87256AC65E00CB7838 /* SaveGradeSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820A4B86256AC65E00CB7838 /* SaveGradeSheetVC.swift */; };
 		823B4AA82566C0C900F54319 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823B4AA72566C0C900F54319 /* Global.swift */; };
 		823B4B2A2566DDCA00F54319 /* SF-Compact-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 823B4AC72566DDB100F54319 /* SF-Compact-Text-Semibold.otf */; };
 		823B4B2B2566DDCA00F54319 /* SF-Compact-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 823B4AC72566DDB100F54319 /* SF-Compact-Text-Semibold.otf */; };
@@ -381,6 +382,7 @@
 		81569B54233ACB4A009098C8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		819D7FB9233657AA00C8A107 /* Old code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Old code.swift"; sourceTree = "<group>"; };
 		81C17C8E2334644500FBFCE8 /* SATScoreBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoreBase.swift; sourceTree = "<group>"; };
+		820A4B86256AC65E00CB7838 /* SaveGradeSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveGradeSheetVC.swift; sourceTree = "<group>"; };
 		823B4AA72566C0C900F54319 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		823B4AC72566DDB100F54319 /* SF-Compact-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Text-Semibold.otf"; sourceTree = "<group>"; };
 		823B4AC82566DDB200F54319 /* SF-Compact-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -516,7 +518,7 @@
 		82AC4D58220BB8B5006D501B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82AC4D66220BC6EA006D501B /* classCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classCell.swift; sourceTree = "<group>"; };
 		82AC4D6A220FD454006D501B /* GPACalcHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPACalcHome.swift; sourceTree = "<group>"; };
-		82B8D3E6256993B8005333C9 /* CustomGPAPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomGPAPickerVC.swift; path = "GPA Calculator/View Controllers/CustomGPAPickerVC.swift"; sourceTree = "<group>"; };
+		82B8D3E6256993B8005333C9 /* CustomGPAPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGPAPickerVC.swift; sourceTree = "<group>"; };
 		82C392CC2238381300E3145B /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
 		82C392CD2238381300E3145B /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
 		82C392CE2238381300E3145B /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
@@ -705,6 +707,8 @@
 		82698BF12213804400B3C10E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				820A4B86256AC65E00CB7838 /* SaveGradeSheetVC.swift */,
+				82B8D3E6256993B8005333C9 /* CustomGPAPickerVC.swift */,
 				823B4C562566E4AC00F54319 /* MainMenuVC.swift */,
 				824D30F325682AAE004035E3 /* GradeSheetEditorVC.swift */,
 				82698BEF2213803700B3C10E /* FolderController.swift */,
@@ -750,7 +754,6 @@
 		82AC4D27220BB8B4006D501B = {
 			isa = PBXGroup;
 			children = (
-				82B8D3E6256993B8005333C9 /* CustomGPAPickerVC.swift */,
 				82AC4D32220BB8B4006D501B /* GPA Calculator */,
 				82AC4D4A220BB8B5006D501B /* GPA CalculatorTests */,
 				82AC4D55220BB8B5006D501B /* GPA CalculatorUITests */,
@@ -1396,6 +1399,7 @@
 				82AC4D34220BB8B4006D501B /* AppDelegate.swift in Sources */,
 				82698C162215A9E500B3C10E /* subCell.swift in Sources */,
 				82B8D3E7256993B8005333C9 /* CustomGPAPickerVC.swift in Sources */,
+				820A4B87256AC65E00CB7838 /* SaveGradeSheetVC.swift in Sources */,
 				82698BF62213809C00B3C10E /* folderCell.swift in Sources */,
 				82698BF02213803700B3C10E /* FolderController.swift in Sources */,
 				819D7FBA233657AA00C8A107 /* Old code.swift in Sources */,

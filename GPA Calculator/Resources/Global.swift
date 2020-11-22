@@ -8,6 +8,56 @@
 
 import UIKit
 
+protocol ObjectSavable {
+    func setObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable
+    func getObject<Object>(forKey: String, castTo type: Object.Type) throws -> Object where Object: Decodable
+}
+
+extension UserDefaults: ObjectSavable {
+    func setObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(object)
+            set(data, forKey: forKey)
+        } catch {
+            throw ObjectSavableError.unableToEncode
+        }
+    }
+    
+    func getObject<Object>(forKey: String, castTo type: Object.Type) throws -> Object where Object: Decodable {
+        guard let data = data(forKey: forKey) else { throw ObjectSavableError.noValue }
+        let decoder = JSONDecoder()
+        do {
+            let object = try decoder.decode(type, from: data)
+            return object
+        } catch {
+            throw ObjectSavableError.unableToDecode
+        }
+    }
+}
+
+enum ObjectSavableError: String, LocalizedError {
+    case unableToEncode = "Unable to encode object into data"
+    case noValue = "No data object found for the given key"
+    case unableToDecode = "Unable to decode object into given type"
+    
+    var errorDescription: String? {
+        rawValue
+    }
+}
+
+extension Date {
+    static func stringFromDate(_ date: Date, format: String) -> String {
+        let df = DateFormatter()
+        df.dateFormat = format
+        return df.string(from: date)
+    }
+}
+
+extension Notification.Name {
+    static let mainMenuReloadTable = Notification.Name("mainMenuReloadTable")
+}
+
 extension UIColor {
     struct atlassian {
         // Static colors
@@ -32,26 +82,50 @@ extension UIColor {
 class Global {
     static var main = Global()
     
-    var gradeSheets: [GradeSheet]
-    var customGPAs: [CustomGPA]
+    var gradeSheets: [GradeSheet] = []
+    var customGPAs: [CustomGPA] = [
+        // Default 4.5
+        CustomGPA(title: "Default 4.5 Scale", chart: [
+            "A+": Weight(standard: 4.33, honors: 4.83, advanced: 5.33),
+            "A": Weight(standard: 4.00, honors: 4.50, advanced: 5.00),
+            "A-": Weight(standard: 3.67, honors: 4.17, advanced: 4.67),
+            "B+": Weight(standard: 3.33, honors: 3.83, advanced: 4.33),
+            "B": Weight(standard: 3.00, honors: 3.50, advanced: 4.00),
+            "B-": Weight(standard: 2.67, honors: 3.17, advanced: 3.67),
+            "C+": Weight(standard: 2.33, honors: 2.83, advanced: 3.33),
+            "C": Weight(standard: 2.00, honors: 2.50, advanced: 3.00),
+            "C-": Weight(standard: 1.67, honors: 2.17, advanced: 2.67),
+            "D+": Weight(standard: 1.33, honors: 1.83, advanced: 2.33),
+            "D": Weight(standard: 1.00, honors: 1.50, advanced: 2.00),
+            "D-": Weight(standard: 0.67, honors: 1.17, advanced: 1.67),
+            "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
+        ]),
+        
+        // Default 4.3
+        CustomGPA(title: "Default 4.3 Scale", chart: [
+            "A+": Weight(standard: 4.33, honors: 4.67, advanced: 5.00),
+            "A": Weight(standard: 4.00, honors: 4.33, advanced: 4.67),
+            "A-": Weight(standard: 3.67, honors: 4.00, advanced: 4.33),
+            "B+": Weight(standard: 3.33, honors: 3.67, advanced: 4.00),
+            "B": Weight(standard: 3.00, honors: 3.33, advanced: 3.67),
+            "B-": Weight(standard: 2.67, honors: 3.00, advanced: 3.33),
+            "C+": Weight(standard: 2.33, honors: 2.67, advanced: 3.00),
+            "C": Weight(standard: 2.00, honors: 2.33, advanced: 2.67),
+            "C-": Weight(standard: 1.67, honors: 2.00, advanced: 2.33),
+            "D+": Weight(standard: 1.33, honors: 1.67, advanced: 2.00),
+            "D": Weight(standard: 1.00, honors: 1.33, advanced: 1.67),
+            "D-": Weight(standard: 0.67, honors: 1.00, advanced: 1.33),
+            "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
+        ])
+    ]
+    var defaultCustomGPAIdx = 0
     
-    var letterGrades = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"] // mod 13
-    
-    /// Create a new empty Global object
-    init() {
-        gradeSheets = []
-        customGPAs = []
-    }
+    var letterGrades = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
     
     /// Initialize main instance
     func configure() {
         retrieveData()
     }
-    
-//    init(gradeSheets: [GradeSheet], customGPAs: [CustomGPA]) {
-//        self.gradeSheets = gradeSheets
-//        self.customGPAs = customGPAs
-//    }
     
     /// Returns the letter grade given the index number (range: [0, 12])
     func gradeLetter(for index: Int) -> String {
@@ -65,50 +139,36 @@ class Global {
     
     /// Save all data to UserDefaults
     func saveData() {
-        
+        let userDefaults = UserDefaults.standard
+        do {
+            try userDefaults.setObject(gradeSheets, forKey: "gradeSheets")
+            try userDefaults.setObject(customGPAs, forKey: "customGPAs")
+            try userDefaults.setObject(defaultCustomGPAIdx, forKey: "defaultCustomGPAIdx")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     /// Retrieve data from UserDefaults
     func retrieveData() {
-        self.customGPAs = [
-            // Default 4.5
-            CustomGPA(title: "Default 4.5 Scale", chart: [
-                "A+": Weight(standard: 4.33, honors: 4.83, advanced: 5.33),
-                "A": Weight(standard: 4.00, honors: 4.50, advanced: 5.00),
-                "A-": Weight(standard: 3.67, honors: 4.17, advanced: 4.67),
-                "B+": Weight(standard: 3.33, honors: 3.83, advanced: 4.33),
-                "B": Weight(standard: 3.00, honors: 3.50, advanced: 4.00),
-                "B-": Weight(standard: 2.67, honors: 3.17, advanced: 3.67),
-                "C+": Weight(standard: 2.33, honors: 2.83, advanced: 3.33),
-                "C": Weight(standard: 2.00, honors: 2.50, advanced: 3.00),
-                "C-": Weight(standard: 1.67, honors: 2.17, advanced: 2.67),
-                "D+": Weight(standard: 1.33, honors: 1.83, advanced: 2.33),
-                "D": Weight(standard: 1.00, honors: 1.50, advanced: 2.00),
-                "D-": Weight(standard: 0.67, honors: 1.17, advanced: 1.67),
-                "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
-            ]),
-            
-            // Default 4.3
-            CustomGPA(title: "Default 4.3 Scale", chart: [
-                "A+": Weight(standard: 4.33, honors: 4.67, advanced: 5.00),
-                "A": Weight(standard: 4.00, honors: 4.33, advanced: 4.67),
-                "A-": Weight(standard: 3.67, honors: 4.00, advanced: 4.33),
-                "B+": Weight(standard: 3.33, honors: 3.67, advanced: 4.00),
-                "B": Weight(standard: 3.00, honors: 3.33, advanced: 3.67),
-                "B-": Weight(standard: 2.67, honors: 3.00, advanced: 3.33),
-                "C+": Weight(standard: 2.33, honors: 2.67, advanced: 3.00),
-                "C": Weight(standard: 2.00, honors: 2.33, advanced: 2.67),
-                "C-": Weight(standard: 1.67, honors: 2.00, advanced: 2.33),
-                "D+": Weight(standard: 1.33, honors: 1.67, advanced: 2.00),
-                "D": Weight(standard: 1.00, honors: 1.33, advanced: 1.67),
-                "D-": Weight(standard: 0.67, honors: 1.00, advanced: 1.33),
-                "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
-            ])
-        ]
+        let userDefaults = UserDefaults.standard
+        do {
+            gradeSheets = try userDefaults.getObject(forKey: "gradeSheets", castTo: [GradeSheet].self)
+            print("GradeSheets:\n\(gradeSheets)")
+            customGPAs = try userDefaults.getObject(forKey: "customGPAs", castTo: [CustomGPA].self)
+            defaultCustomGPAIdx = try userDefaults.getObject(forKey: "defaultCustomGPAIdx", castTo: Int.self)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    /// Returns the default custom GPA
+    func defaultGPA() -> CustomGPA {
+        return Global.main.customGPAs[Global.main.defaultCustomGPAIdx]
     }
 }
 
-class GradeSheet: CustomStringConvertible {
+class GradeSheet: Codable, CustomStringConvertible {
     
     var description: String {
         var s = "\(title), \(uuid):\n"
@@ -121,17 +181,23 @@ class GradeSheet: CustomStringConvertible {
     var title: String
     var grades: [GradeItem]
     var uuid: String
+    var customGPAIdx: Int
+    var timestamp: Date
     
-    init(title: String, grades: [GradeItem], uuid: String) {
+    init(title: String, grades: [GradeItem], uuid: String, customGPAIdx: Int, timestamp: Date) {
         self.title = title
         self.grades = grades
         self.uuid = uuid
+        self.customGPAIdx = customGPAIdx
+        self.timestamp = timestamp
     }
     
     init() {
         self.title = ""
         self.grades = []
         self.uuid = UUID().uuidString
+        self.customGPAIdx = Global.main.defaultCustomGPAIdx
+        self.timestamp = Date()
     }
     
     /// Get grade at index
@@ -207,17 +273,25 @@ class GradeSheet: CustomStringConvertible {
         guard creditSum > 0 else {return 0.0}
         return avg / creditSum
     }
+    
+    /// Return a copy of the GradeSheet object
+    func copy() -> GradeSheet {
+        var copiedGrades: [GradeItem] = []
+        for grade in grades {
+            copiedGrades.append(GradeItem(name: grade.className, classType: grade.classType, credits: grade.credits, gradeIndex: grade.gradeIndex, uuid: UUID().uuidString))
+        }
+        return GradeSheet(title: title, grades: copiedGrades, uuid: UUID().uuidString, customGPAIdx: customGPAIdx, timestamp: timestamp)
+    }
 }
 
-class GradeItem: CustomStringConvertible {
-    var description: String { return "\(className), \(classType), \(credits), \(Global.main.gradeLetter(for: gradeIndex)), \(uuid), \(timestamp)" }
+class GradeItem: Codable, CustomStringConvertible {
+    var description: String { return "\(className), \(classType), \(credits), \(Global.main.gradeLetter(for: gradeIndex)), \(uuid)" }
     
     var className: String
     var classType: ClassType
     var credits: Double
     var gradeIndex: Int
     var uuid: String
-    var timestamp: Date
     
     /// Create a new GradeItem object
     init(name: String, classType: ClassType, credits: Double, gradeIndex: Int) {
@@ -226,21 +300,19 @@ class GradeItem: CustomStringConvertible {
         self.credits = credits
         self.gradeIndex = gradeIndex
         self.uuid = UUID().uuidString
-        self.timestamp = Date()
     }
     
     /// Create an existing GradeItem object
-    init(name: String, classType: ClassType, credits: Double, gradeIndex: Int, uuid: String, timestamp: Date) {
+    init(name: String, classType: ClassType, credits: Double, gradeIndex: Int, uuid: String) {
         self.className = name
         self.classType = classType
         self.credits = credits
         self.gradeIndex = gradeIndex
         self.uuid = uuid
-        self.timestamp = timestamp
     }
 }
 
-class CustomGPA {
+class CustomGPA: Codable {
     var title: String
     var chart: [String: Weight]
     
@@ -281,13 +353,13 @@ class CustomGPA {
     }
 }
 
-struct Weight {
+struct Weight: Codable {
     var standard: Double
     var honors: Double
     var advanced: Double
 }
 
-enum ClassType: String {
+enum ClassType: String, Codable {
     case standard = "Standard"
     case honors = "Honors"
     case advanced = "AP/IB"

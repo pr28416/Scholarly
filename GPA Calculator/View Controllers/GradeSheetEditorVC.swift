@@ -71,7 +71,15 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "GradeSheetCell", for: indexPath) as! GradeSheetCell
         cell.gradeItem = gradeSheet.getGrade(at: indexPath.row)
         cell.gradePicker.layer.cornerRadius = 10
-        cell.creditLabel.text = "0.0"
+        cell.gradePicker.selectRow(cell.gradeItem.gradeIndex, inComponent: 0, animated: false)
+        cell.creditStepper.value = cell.gradeItem.credits
+        cell.creditLabel.text = "\(cell.gradeItem.credits)"
+        cell.subjectName.text = cell.gradeItem.className
+        switch cell.gradeItem.classType {
+        case .standard: cell.subjectType.selectedSegmentIndex = 0
+        case .honors: cell.subjectType.selectedSegmentIndex = 1
+        case .advanced: cell.subjectType.selectedSegmentIndex = 2
+        }
         return cell
     }
     
@@ -89,7 +97,8 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     var gradeSheet: GradeSheet!
-    var selectedCustomGPA: CustomGPA!
+    var originalGradeSheet: GradeSheet!
+    var isCreating = false
     @IBOutlet weak var unweightedLabel: UILabel!
     @IBOutlet weak var weightedLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -101,6 +110,9 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        originalGradeSheet = gradeSheet.copy()
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         topBar.layer.cornerRadius = 20
@@ -150,7 +162,12 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCustomGPAPickerVC" {
             let vc = segue.destination as! CustomGPAPickerVC
-            vc.previousViewController = self
+            vc.gradeSheet = gradeSheet
+        } else if segue.identifier == "showSaveGradeSheetVC" {
+            let vc = segue.destination as! SaveGradeSheetVC
+            vc.gradeSheet = gradeSheet
+            vc.originalGradeSheet = originalGradeSheet
+            vc.isCreating = isCreating
         }
     }
     
@@ -168,6 +185,7 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "showSaveGradeSheetVC", sender: nil)
     }
     
     @IBAction func close(_ sender: Any) {
@@ -179,7 +197,7 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func updateWeightedGPA() {
-        weightedLabel.text = "\(round(gradeSheet.getWeightedGPA(scale: selectedCustomGPA)*10000.0)/10000.0)"
+        weightedLabel.text = "\(round(gradeSheet.getWeightedGPA(scale: Global.main.customGPAs[gradeSheet.customGPAIdx])*10000.0)/10000.0)"
     }
 }
 

@@ -29,12 +29,11 @@ class CustomGPAPickerVC: UITableViewController {
         return cell
     }
     
-    var previousViewController: GradeSheetEditorVC!
+    var gradeSheet: GradeSheet!
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let idx = indexPath.row + (indexPath.section == 0 ? 0 : 2)
-        let selectedCustomGPA = Global.main.customGPAs[idx]
-        self.previousViewController.selectedCustomGPA = selectedCustomGPA
+        self.gradeSheet.customGPAIdx = idx
         self.navigationController?.popViewController(animated: true)
     }
 
