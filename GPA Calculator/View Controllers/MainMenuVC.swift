@@ -15,12 +15,10 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection", Global.main.gradeSheets.count)
         return Global.main.gradeSheets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecentGradeSheetCell", for: indexPath) as! RecentGradeSheetCell
         if Global.main.gradeSheets[indexPath.row].title.count != 0 {
             cell.title.text = Global.main.gradeSheets[indexPath.row].title
@@ -65,6 +63,10 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "createNewGradeSheetSegue", sender: nil)
     }
     
+    @IBAction func pressedGPAWeightEditor(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "showGPAWeightEditor", sender: nil)
+    }
+    
     @IBAction func editPressed(_ sender: UIButton) {
         tableView.setEditing(!tableView.isEditing, animated: true)
         sender.setTitle(tableView.isEditing ? "Done" : "Edit", for: .normal)
@@ -83,7 +85,12 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.reloadData()
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .mainMenuReloadTable, object: nil)
+        
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
     }
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @objc func reload() {
         tableView.reloadData()
@@ -91,8 +98,8 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.tableViewHeight.constant = self.tableView.contentSize.height
         } completion: { (_) in
             self.view.layoutIfNeeded()
-            print(self.tableView.contentSize.height)
         }
+        self.scrollView.refreshControl?.endRefreshing()
     }
     
     override func viewDidAppear(_ animated: Bool) {

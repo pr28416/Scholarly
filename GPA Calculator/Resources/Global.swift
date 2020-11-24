@@ -56,6 +56,7 @@ extension Date {
 
 extension Notification.Name {
     static let mainMenuReloadTable = Notification.Name("mainMenuReloadTable")
+    static let customGPASheetsReloadTable = Notification.Name("customGPASheetsReloadTable")
 }
 
 extension UIColor {
@@ -363,4 +364,10 @@ enum ClassType: String, Codable {
     case standard = "Standard"
     case honors = "Honors"
     case advanced = "AP/IB"
+}
+
+func showAlert(_ controller: UIViewController, title: String, message: String, actions: [UIAlertAction]) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    for action in actions {alert.addAction(action)}
+    controller.present(alert, animated: true, completion: nil)
 }

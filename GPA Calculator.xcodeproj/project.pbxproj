@@ -331,6 +331,8 @@
 		82698C122215A9C300B3C10E /* GPAEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698C112215A9C300B3C10E /* GPAEditor.swift */; };
 		82698C142215A9D700B3C10E /* SubEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698C132215A9D700B3C10E /* SubEditor.swift */; };
 		82698C162215A9E500B3C10E /* subCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82698C152215A9E500B3C10E /* subCell.swift */; };
+		826E5E38256D4E8900A9D726 /* WeightEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E5E37256D4E8900A9D726 /* WeightEditorVC.swift */; };
+		826E5E40256D7ABF00A9D726 /* EditCustomWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E5E3F256D7ABF00A9D726 /* EditCustomWeightVC.swift */; };
 		82AC4D34220BB8B4006D501B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D33220BB8B4006D501B /* AppDelegate.swift */; };
 		82AC4D39220BB8B4006D501B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AC4D37220BB8B4006D501B /* Main.storyboard */; };
 		82AC4D3C220BB8B4006D501B /* GPA_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82AC4D3A220BB8B4006D501B /* GPA_Calculator.xcdatamodeld */; };
@@ -503,6 +505,8 @@
 		82698C112215A9C300B3C10E /* GPAEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAEditor.swift; sourceTree = "<group>"; };
 		82698C132215A9D700B3C10E /* SubEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEditor.swift; sourceTree = "<group>"; };
 		82698C152215A9E500B3C10E /* subCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subCell.swift; sourceTree = "<group>"; };
+		826E5E37256D4E8900A9D726 /* WeightEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEditorVC.swift; sourceTree = "<group>"; };
+		826E5E3F256D7ABF00A9D726 /* EditCustomWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCustomWeightVC.swift; sourceTree = "<group>"; };
 		82AC4D30220BB8B4006D501B /* GPA Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPA Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AC4D33220BB8B4006D501B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82AC4D38220BB8B4006D501B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -707,6 +711,8 @@
 		82698BF12213804400B3C10E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				826E5E37256D4E8900A9D726 /* WeightEditorVC.swift */,
+				826E5E3F256D7ABF00A9D726 /* EditCustomWeightVC.swift */,
 				820A4B86256AC65E00CB7838 /* SaveGradeSheetVC.swift */,
 				82B8D3E6256993B8005333C9 /* CustomGPAPickerVC.swift */,
 				823B4C562566E4AC00F54319 /* MainMenuVC.swift */,
@@ -1395,10 +1401,12 @@
 				C3E1A413225B8DE1007E231F /* CumulativeCalculator.swift in Sources */,
 				82AC4D6B220FD454006D501B /* GPACalcHome.swift in Sources */,
 				82698C142215A9D700B3C10E /* SubEditor.swift in Sources */,
+				826E5E40256D7ABF00A9D726 /* EditCustomWeightVC.swift in Sources */,
 				823B4AA82566C0C900F54319 /* Global.swift in Sources */,
 				82AC4D34220BB8B4006D501B /* AppDelegate.swift in Sources */,
 				82698C162215A9E500B3C10E /* subCell.swift in Sources */,
 				82B8D3E7256993B8005333C9 /* CustomGPAPickerVC.swift in Sources */,
+				826E5E38256D4E8900A9D726 /* WeightEditorVC.swift in Sources */,
 				820A4B87256AC65E00CB7838 /* SaveGradeSheetVC.swift in Sources */,
 				82698BF62213809C00B3C10E /* folderCell.swift in Sources */,
 				82698BF02213803700B3C10E /* FolderController.swift in Sources */,

@@ -189,7 +189,12 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func close(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        showAlert(self, title: "Confirm exit", message: "Are you sure you want to exit? Your changes will be discarded.", actions: [
+            UIAlertAction(title: "Cancel", style: .cancel, handler: nil),
+            UIAlertAction(title: "Exit", style: .destructive, handler: { (_) in
+                self.dismiss(animated: true, completion: nil)
+            })
+        ])
     }
     
     func updateUnweightedGPA() {

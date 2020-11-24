@@ -17,7 +17,7 @@ class SaveGradeSheetVC: UITableViewController, UITextFieldDelegate {
 
     @IBAction func saveClicked(_ sender: UIButton) {
         guard let name = sheetName.text, name.count != 0 else {
-            showAlert(title: "Invalid sheet title", message: "Please provide a valid title for your grade sheet.", actions: [UIAlertAction(title: "Go back", style: .cancel, handler: nil)])
+            showAlert(self, title: "Invalid sheet title", message: "Please provide a valid title for your grade sheet.", actions: [UIAlertAction(title: "Go back", style: .cancel, handler: nil)])
             return
         }
         
@@ -40,7 +40,7 @@ class SaveGradeSheetVC: UITableViewController, UITextFieldDelegate {
     
     @IBAction func saveAsNewClicked(_ sender: UIButton) {
         guard let name = sheetName.text, name.count != 0 else {
-            showAlert(title: "Invalid sheet title", message: "Please provide a valid title for your grade sheet.", actions: [UIAlertAction(title: "Go back", style: .cancel, handler: nil)])
+            showAlert(self, title: "Invalid sheet title", message: "Please provide a valid title for your grade sheet.", actions: [UIAlertAction(title: "Go back", style: .cancel, handler: nil)])
             return
         }
         
@@ -85,12 +85,6 @@ class SaveGradeSheetVC: UITableViewController, UITextFieldDelegate {
             }
         }
         return nil
-    }
-    
-    func showAlert(title: String, message: String, actions: [UIAlertAction]) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        for action in actions {alert.addAction(action)}
-        self.present(alert, animated: true, completion: nil)
     }
     
 }
