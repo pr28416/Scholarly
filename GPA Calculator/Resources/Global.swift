@@ -120,6 +120,9 @@ class Global {
         ])
     ]
     var defaultCustomGPAIdx = 0
+    var defaultCustomGPA: CustomGPA {
+        return customGPAs[defaultCustomGPAIdx]
+    }
     
     var letterGrades = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
     
@@ -273,6 +276,11 @@ class GradeSheet: Codable, CustomStringConvertible {
         }
         guard creditSum > 0 else {return 0.0}
         return avg / creditSum
+    }
+    
+    /// Calculate and return weighted GPA from customGPAIdx property
+    func getWeightedGPA() -> Double {
+        return getWeightedGPA(scale: Global.main.customGPAs[customGPAIdx])
     }
     
     /// Return a copy of the GradeSheet object

@@ -19,7 +19,7 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecentGradeSheetCell", for: indexPath) as! RecentGradeSheetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecentGradeSheetCell", for: indexPath) as! MainGradeSheetCell
         if Global.main.gradeSheets[indexPath.row].title.count != 0 {
             cell.title.text = Global.main.gradeSheets[indexPath.row].title
         } else {
@@ -28,7 +28,7 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.weight.text = Global.main.customGPAs[Global.main.gradeSheets[indexPath.row].customGPAIdx].title
         let ts = Global.main.gradeSheets[indexPath.row].timestamp
         cell.dateModified.text = "\(Date.stringFromDate(ts, format: "h:mm a")) on \(Date.stringFromDate(ts, format: "MMM d, YYYY"))"
-        cell.gpa.text = "\(Global.main.gradeSheets[indexPath.row].getWeightedGPA(scale: Global.main.customGPAs[Global.main.gradeSheets[indexPath.row].customGPAIdx]))"
+        cell.gpa.text = "\(Global.main.gradeSheets[indexPath.row].getWeightedGPA())"
         return cell
     }
     
@@ -55,6 +55,9 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 vc.gradeSheet.addGrade()
                 vc.isCreating = true
             }
+        case "showCumulativeCalculator":
+            let vc = (segue.destination as! UINavigationController).viewControllers[0] as! CumulativeCalcVC
+            vc.customGPA = Global.main.defaultCustomGPA
         default: break
         }
     }
@@ -65,6 +68,10 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func pressedGPAWeightEditor(_ sender: UIButton) {
         self.performSegue(withIdentifier: "showGPAWeightEditor", sender: nil)
+    }
+    
+    @IBAction func pressedCumulativeCalculator(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "showCumulativeCalculator", sender: nil)
     }
     
     @IBAction func editPressed(_ sender: UIButton) {
@@ -119,11 +126,4 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cumulativeCalculator: ShadowView!
     @IBOutlet weak var gpaWeightingCalculator: ShadowView!
     @IBOutlet weak var testScoreCalculator: ShadowView!
-}
-
-class RecentGradeSheetCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var weight: UILabel!
-    @IBOutlet weak var dateModified: UILabel!
-    @IBOutlet weak var gpa: UILabel!
 }
