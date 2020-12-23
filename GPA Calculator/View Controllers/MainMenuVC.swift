@@ -74,6 +74,10 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "showCumulativeCalculator", sender: nil)
     }
     
+    @IBAction func pressedGroupLeaderboard(_ sender: Any) {
+        self.performSegue(withIdentifier: "showGroupLeaderboard", sender: nil)
+    }
+    
     @IBAction func editPressed(_ sender: UIButton) {
         tableView.setEditing(!tableView.isEditing, animated: true)
         sender.setTitle(tableView.isEditing ? "Done" : "Edit", for: .normal)
@@ -81,10 +85,11 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         createNewGradeSheet.backgroundColor = UIColor.atlassian.primaryBlue
         cumulativeCalculator.backgroundColor = UIColor.atlassian.primaryGreen
         gpaWeightingCalculator.backgroundColor = UIColor.atlassian.primaryRed
-        testScoreCalculator.backgroundColor = UIColor.atlassian.primaryYellow
+        groupLeaderboard.backgroundColor = UIColor.atlassian.primaryYellow
         
         Global.main.gradeSheets.sort { (g1, g2) -> Bool in
             return g1.timestamp > g2.timestamp
@@ -125,5 +130,5 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var createNewGradeSheet: ShadowView!
     @IBOutlet weak var cumulativeCalculator: ShadowView!
     @IBOutlet weak var gpaWeightingCalculator: ShadowView!
-    @IBOutlet weak var testScoreCalculator: ShadowView!
+    @IBOutlet weak var groupLeaderboard: ShadowView!
 }

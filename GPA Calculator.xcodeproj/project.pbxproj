@@ -355,6 +355,7 @@
 		82C392DB2238381400E3145B /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C392D32238381400E3145B /* Nunito-Medium.ttf */; };
 		82CDC2A023D8C0E0001B88FB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CDC29F23D8C0E0001B88FB /* HomeVC.swift */; };
 		82D75E8622D223BB00FEE95C /* APScoreBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D75E8522D223BB00FEE95C /* APScoreBase.swift */; };
+		82D8C0DD25700A5E00EF496E /* LeaderboardHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D8C0DC25700A5E00EF496E /* LeaderboardHomeVC.swift */; };
 		82FDD91822498A80005D6553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82FDD91722498A80005D6553 /* GoogleService-Info.plist */; };
 		A51A46344AA907950BDDA10B /* Pods_GPA_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB71F0484DBFE8AE4B444A8B /* Pods_GPA_CalculatorTests.framework */; };
 		C3E1A413225B8DE1007E231F /* CumulativeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1A412225B8DE1007E231F /* CumulativeCalculator.swift */; };
@@ -537,6 +538,7 @@
 		82C392D32238381400E3145B /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
 		82CDC29F23D8C0E0001B88FB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		82D75E8522D223BB00FEE95C /* APScoreBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APScoreBase.swift; sourceTree = "<group>"; };
+		82D8C0DC25700A5E00EF496E /* LeaderboardHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardHomeVC.swift; sourceTree = "<group>"; };
 		82FDD91722498A80005D6553 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEC25A32CB9AEE5C3D526A2E /* Pods_GPA_CalculatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_CalculatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E1A412225B8DE1007E231F /* CumulativeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeCalculator.swift; sourceTree = "<group>"; };
@@ -720,6 +722,7 @@
 				820A4B86256AC65E00CB7838 /* SaveGradeSheetVC.swift */,
 				82B8D3E6256993B8005333C9 /* CustomGPAPickerVC.swift */,
 				823B4C562566E4AC00F54319 /* MainMenuVC.swift */,
+				82D8C0DC25700A5E00EF496E /* LeaderboardHomeVC.swift */,
 				821795CC256F3BC600BDD28F /* CumulativeCalcVC.swift */,
 				821795D1256F3D1E00BDD28F /* MainGradeSheetCell.swift */,
 				824D30F325682AAE004035E3 /* GradeSheetEditorVC.swift */,
@@ -1403,6 +1406,7 @@
 				82CDC2A023D8C0E0001B88FB /* HomeVC.swift in Sources */,
 				82AC4D67220BC6EA006D501B /* classCell.swift in Sources */,
 				82698C122215A9C300B3C10E /* GPAEditor.swift in Sources */,
+				82D8C0DD25700A5E00EF496E /* LeaderboardHomeVC.swift in Sources */,
 				82D75E8622D223BB00FEE95C /* APScoreBase.swift in Sources */,
 				C3E1A413225B8DE1007E231F /* CumulativeCalculator.swift in Sources */,
 				82AC4D6B220FD454006D501B /* GPACalcHome.swift in Sources */,

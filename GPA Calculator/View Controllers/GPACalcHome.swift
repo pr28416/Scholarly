@@ -110,7 +110,6 @@ class MainContainerVC: UIViewController, GADBannerViewDelegate {
     }
 }
 
-
 class sideMenu: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         hapticImpact(feedback: .medium)
@@ -399,7 +398,7 @@ class GPACalcHome: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
     }
     
-    // [class name, grade index, weight for grade, credits, type, type index, ClassInfo Schedule name, schedule ID (UUID), timestamp]
+    // [0: class name, 1: grade index, 2: weight for grade, 3: credits, 4: type, 5: type index, 6: ClassInfo Schedule name, 7: schedule ID (UUID), 8: timestamp]
     
     @objc func calculateWeightedGPA() {
         if currentGPAtype == 1 {

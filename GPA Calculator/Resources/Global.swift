@@ -80,9 +80,39 @@ extension UIColor {
     }
 }
 
+class Profile: Codable {
+    var username: String
+    var uid: String
+    
+    init() { username = ""; uid = UUID().uuidString }
+    init(name: String) {
+        self.username = name
+        self.uid = UUID().uuidString
+    }
+    init(name: String, uid: String) {
+        self.username = name
+        self.uid = uid
+    }
+}
+
+class Leaderboard: Codable {
+    var title: String
+    var id: String
+    var members: [Profile]
+    var customGPA: CustomGPA
+    
+    init(title: String = "", id: String = "", members: [Profile] = [], customGPA: CustomGPA = Global.main.defaultCustomGPA) {
+        self.title = title
+        self.id = id
+        self.members = members
+        self.customGPA = customGPA
+    }
+}
+
 class Global {
     static var main = Global()
     
+    var migrated = false
     var gradeSheets: [GradeSheet] = []
     var customGPAs: [CustomGPA] = [
         // Default 4.5
@@ -119,6 +149,8 @@ class Global {
             "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
         ])
     ]
+    
+    var profile: Profile!
     var defaultCustomGPAIdx = 0
     var defaultCustomGPA: CustomGPA {
         return customGPAs[defaultCustomGPAIdx]
@@ -129,6 +161,73 @@ class Global {
     /// Initialize main instance
     func configure() {
         retrieveData()
+        
+        if !migrated {
+            print("Beginning migration")
+            migrate()
+        } else {
+            print("Already migrated")
+        }
+    }
+    
+    /// Migrate data
+    func migrate() {
+        // Migrate custom GPA weights
+        for gradeWeightRow in customGPAList {
+            let gpaList = CustomGPA(
+                title: gradeWeightRow[0][0] as! String,
+                chart: [:])
+            for (idx, weight) in gradeWeightRow.enumerated() {
+                if idx == 0 {continue}
+                gpaList.chart[weight[0] as! String] = Weight(
+                    standard: weight[2] as! Double,
+                    honors: weight[3] as! Double,
+                    advanced: weight[4] as! Double)
+            }
+            customGPAs.append(gpaList)
+        }
+        
+        print("=================")
+        print("Migrated custom GPA weights:")
+        print("=================")
+        
+        for row in customGPAs {
+            print(row.title)
+            for (k, v) in row.chart {
+                print("\t\(k), Std: \(v.standard), Hon: \(v.honors), Adv: \(v.advanced)")
+            }
+        }
+        print("=================")
+        
+        // Migrate GPA sheets
+        for sheet in globalStorage {
+            let newSheet = GradeSheet(
+                title: sheet.count > 0 ? sheet[0][6] as! String : "Unnamed",
+                grades: sheet.map({ (item) -> GradeItem in
+                    let typeIdx = item[5] as! Int
+                    return GradeItem(
+                        name: item[0] as! String,
+                        classType: typeIdx == 0 ? .standard : typeIdx == 1 ? .honors : .advanced,
+                        credits: item[3] as! Double,
+                        gradeIndex: item[1] as! Int)
+                }),
+                uuid: sheet.count > 0 ? sheet[0][7] as! String : UUID().uuidString,
+                customGPAIdx: Global.main.defaultCustomGPAIdx,
+                timestamp: sheet.count > 0 ? Date(timeIntervalSinceReferenceDate: (sheet[0][8] as! NSDate).timeIntervalSinceReferenceDate) : Date())
+            gradeSheets.append(newSheet)
+        }
+        
+        print("=================")
+        print("Migrated grade sheets:")
+        print("=================")
+        
+        for row in gradeSheets {
+            print(row)
+        }
+        print("=================")
+        
+        migrated = true
+        saveData()
     }
     
     /// Returns the letter grade given the index number (range: [0, 12])
@@ -148,6 +247,8 @@ class Global {
             try userDefaults.setObject(gradeSheets, forKey: "gradeSheets")
             try userDefaults.setObject(customGPAs, forKey: "customGPAs")
             try userDefaults.setObject(defaultCustomGPAIdx, forKey: "defaultCustomGPAIdx")
+            try userDefaults.setObject(profile, forKey: "userProfile")
+            try userDefaults.setObject(migrated, forKey: "migrated")
         } catch {
             print(error.localizedDescription)
         }
@@ -158,11 +259,14 @@ class Global {
         let userDefaults = UserDefaults.standard
         do {
             gradeSheets = try userDefaults.getObject(forKey: "gradeSheets", castTo: [GradeSheet].self)
-            print("GradeSheets:\n\(gradeSheets)")
+//            print("GradeSheets:\n\(gradeSheets)")
             customGPAs = try userDefaults.getObject(forKey: "customGPAs", castTo: [CustomGPA].self)
             defaultCustomGPAIdx = try userDefaults.getObject(forKey: "defaultCustomGPAIdx", castTo: Int.self)
+            profile = try userDefaults.getObject(forKey: "userProfile", castTo: Profile.self)
+            migrated = try userDefaults.getObject(forKey: "migrated", castTo: Bool.self)
         } catch {
             print(error.localizedDescription)
+            profile = Profile()
         }
     }
     
@@ -175,7 +279,7 @@ class Global {
 class GradeSheet: Codable, CustomStringConvertible {
     
     var description: String {
-        var s = "\(title), \(uuid):\n"
+        var s = "\(title), \(uuid), \(timestamp), \(customGPAIdx):\n"
         for i in self.grades {
             s += "\t" + i.description + "\n"
         }
