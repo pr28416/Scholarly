@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s51-0z-IJQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s51-0z-IJQ">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -971,18 +971,18 @@
                                                                 <rect key="frame" x="173.66666666666663" y="0.0" width="161.33333333333337" height="114"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pbR-Hu-nO7">
-                                                                        <rect key="frame" x="33.999999999999993" y="19" width="93.333333333333314" height="76"/>
+                                                                        <rect key="frame" x="41.666666666666686" y="19" width="78" height="76"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fl4-ox-S4v">
-                                                                                <rect key="frame" x="0.0" y="-0.33333333333333215" width="93.333333333333329" height="29"/>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="book.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fl4-ox-S4v">
+                                                                                <rect key="frame" x="0.0" y="-0.66666666666666785" width="78" height="29.666666666666668"/>
                                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="28" id="kPe-ZP-JZi"/>
                                                                                 </constraints>
                                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard Rooms" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBl-Vw-mRA">
-                                                                                <rect key="frame" x="0.0" y="40" width="93.333333333333329" height="36"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculate test scores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBl-Vw-mRA">
+                                                                                <rect key="frame" x="0.0" y="40" width="78" height="36"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -994,6 +994,7 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <connections>
                                                                             <action selector="pressedGroupLeaderboard:" destination="jPq-wu-X4V" eventType="touchUpInside" id="8un-kh-3Pm"/>
+                                                                            <segue destination="a00-wA-5JT" kind="presentation" identifier="showTestCalc" id="AZS-42-bhB"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1365,13 +1366,13 @@
                                         <rect key="frame" x="20" y="4" width="335" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yt7-xE-6zO">
-                                                <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="39" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter weight sheet title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bA2-0H-qO6">
-                                                <rect key="frame" x="51.333333333333343" y="0.0" width="283.66666666666663" height="44"/>
+                                                <rect key="frame" x="51" y="0.0" width="284" height="44"/>
                                                 <color key="backgroundColor" name="List Cell Background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="HRC-KP-wBO"/>
@@ -3298,6 +3299,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8ug-Ca-Dsf"/>
+        <segue reference="AZS-42-bhB"/>
         <segue reference="e5h-Vf-VpF"/>
         <segue reference="tIz-YH-BoY"/>
         <segue reference="oK8-ZS-HP4"/>
@@ -3305,6 +3307,7 @@
     <resources>
         <image name="AP Icon" width="100" height="100"/>
         <image name="blue-purple" width="200" height="200"/>
+        <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="data" width="96" height="96"/>
         <image name="doc.badge.gearshape.fill" catalog="system" width="122" height="128"/>
@@ -3314,7 +3317,6 @@
         <image name="icons8-terms-and-conditions-48" width="48" height="48"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="list.number" catalog="system" width="128" height="97"/>
-        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="sat-icon-12" width="350" height="350"/>
         <image name="save" width="30" height="30"/>
