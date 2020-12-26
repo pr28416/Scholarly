@@ -15,10 +15,11 @@ class ShadowView: UIView {
     override func layoutSubviews() {
         layer.cornerRadius = kCornerRadius
         clipsToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor(r: 10, g: 10, b: 12).cgColor
+//        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 4)
-        layer.shadowRadius = 8
-        layer.shadowOpacity = 0.23
+        layer.shadowRadius = 12
+        layer.shadowOpacity = 0.2
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: kCornerRadius).cgPath
     }
     

@@ -78,6 +78,10 @@ extension UIColor {
         static let secondaryBackground = UIColor(named: "Secondary Background")
         static let secondaryLabel = UIColor(named: "Secondary Label Text")
     }
+    
+    convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
+        self.init(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
+    }
 }
 
 class Profile: Codable {
@@ -483,3 +487,5 @@ func showAlert(_ controller: UIViewController, title: String, message: String, a
     for action in actions {alert.addAction(action)}
     controller.present(alert, animated: true, completion: nil)
 }
+
+
