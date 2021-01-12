@@ -364,10 +364,14 @@ class GradeSheet: Codable, CustomStringConvertible {
         guard grades.count > 0 else {return 0.0}
         let weights = [4.33, 4.0, 3.67, 3.33, 3.0, 2.67, 2.33, 2.0, 1.67, 1.33, 1.0, 0.67, 0]
         var avg = 0.0
+        var creditSum = 0.0
         for i in grades {
-            avg += weights[i.gradeIndex]
+            avg += weights[i.gradeIndex] * i.credits
+            creditSum += i.credits
         }
-        return avg / Double(grades.count)
+//        return avg / Double(grades.count)
+        guard creditSum > 0 else {return 0.0}
+        return avg / creditSum
     }
     
     /// Calculate and return weighted GPA
@@ -384,6 +388,15 @@ class GradeSheet: Codable, CustomStringConvertible {
         }
         guard creditSum > 0 else {return 0.0}
         return avg / creditSum
+    }
+    
+    /// Get total number of credits
+    var totalCredits: Double {
+        var credits = 0.0
+        for grade in grades {
+            credits += grade.credits
+        }
+        return credits
     }
     
     /// Calculate and return weighted GPA from customGPAIdx property

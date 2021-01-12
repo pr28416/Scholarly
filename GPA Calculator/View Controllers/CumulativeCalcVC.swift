@@ -51,6 +51,12 @@ class CumulativeCalcVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scaleSelect: UITextField!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var modeControl: UISegmentedControl!
+    
+    @IBAction func modeChanged(_ sender: UISegmentedControl) {
+        recalculate()
+    }
+    
     var pickerView: UIPickerView!
     var customGPA: CustomGPA!
     
@@ -85,6 +91,7 @@ class CumulativeCalcVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @objc func dismissPicker() {
         view.endEditing(true)
         customGPA = Global.main.customGPAs[pickerView.selectedRow(inComponent: 0)]
+        tableView.reloadData()
         recalculate()
     }
     
@@ -94,19 +101,37 @@ class CumulativeCalcVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         var totalUnweighted: Double = 0
         var totalWeighted: Double = 0
         
-        if let indexPaths = tableView.indexPathsForSelectedRows {
-            for i in indexPaths {
-                let g = tableView.cellForRow(at: i) as! MainGradeSheetCell
-                totalUnweighted += g.gradeSheet.getUnweightedGPA()
+        if modeControl.selectedSegmentIndex == 0 {
+            if let indexPaths = tableView.indexPathsForSelectedRows {
+                var numberOfCredits = 0.0
+                
+                for i in indexPaths {
+                    let g = tableView.cellForRow(at: i) as! MainGradeSheetCell
+                    totalUnweighted += g.gradeSheet.getUnweightedGPA() * Double(g.gradeSheet.grades.count)
+                    let credits = g.gradeSheet.totalCredits
+                    totalWeighted += g.gradeSheet.getWeightedGPA() * credits
+                    numberOfCredits += credits
+                }
+                
+                totalUnweighted /= numberOfCredits
+                totalWeighted /= numberOfCredits
             }
-            totalUnweighted /= Double(indexPaths.count)
-            
-            for i in indexPaths {
-                let g = tableView.cellForRow(at: i) as! MainGradeSheetCell
-                totalWeighted += g.gradeSheet.getWeightedGPA(scale: customGPA)
+        } else {
+            if let indexPaths = tableView.indexPathsForSelectedRows {
+                for i in indexPaths {
+                    let g = tableView.cellForRow(at: i) as! MainGradeSheetCell
+                    totalUnweighted += g.gradeSheet.getUnweightedGPA()
+                }
+                totalUnweighted /= Double(indexPaths.count)
+                
+                for i in indexPaths {
+                    let g = tableView.cellForRow(at: i) as! MainGradeSheetCell
+                    totalWeighted += g.gradeSheet.getWeightedGPA(scale: customGPA)
+                }
+                totalWeighted /= Double(indexPaths.count)
             }
-            totalWeighted /= Double(indexPaths.count)
         }
+        
         
         unweightedScoreLabel.text = String(format: "%.3f", totalUnweighted)
         weightedScoreLabel.text = String(format: "%.3f", totalWeighted)

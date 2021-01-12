@@ -48,6 +48,15 @@ class WeightEditorVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        showAlert(self, title: "Make default", message: "Do you want to make this weight sheet your default?", actions: [
+            UIAlertAction(title: "Cancel", style: .cancel, handler: nil),
+            UIAlertAction(title: "Make default", style: .default, handler: { _ in
+                Global.main.defaultCustomGPAIdx = indexPath.row
+            })
+        ])
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEditCustomWeightVC" {
             let vc = (segue.destination as! UINavigationController).viewControllers[0] as! EditCustomWeightVC
