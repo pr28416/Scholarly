@@ -174,6 +174,7 @@ class GradeSheetEditorVC: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func addSubjectPressed(_ sender: UIButton) {
         gradeSheet.addGrade()
         tableView.insertRows(at: [IndexPath(row: gradeSheet.grades.count-1, section: 0)], with: .bottom)
+        tableView.scrollToRow(at: IndexPath(row: gradeSheet.grades.count-1, section: 0), at: .bottom, animated: true)
         updateUnweightedGPA()
         updateWeightedGPA()
     }

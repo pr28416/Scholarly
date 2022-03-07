@@ -28,7 +28,7 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.weight.text = Global.main.customGPAs[Global.main.gradeSheets[indexPath.row].customGPAIdx].title
         let ts = Global.main.gradeSheets[indexPath.row].timestamp
         cell.dateModified.text = "\(Date.stringFromDate(ts, format: "h:mm a")) on \(Date.stringFromDate(ts, format: "MMM d, YYYY"))"
-        cell.gpa.text = "\(Global.main.gradeSheets[indexPath.row].getWeightedGPA())"
+        cell.gpa.text = "\(Double(round(Global.main.gradeSheets[indexPath.row].getWeightedGPA()*1000))/1000)"
         return cell
     }
     

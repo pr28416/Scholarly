@@ -136,8 +136,8 @@ class Global {
             "F": Weight(standard: 0.00, honors: 0.00, advanced: 0.00),
         ]),
         
-        // Default 4.3
-        CustomGPA(title: "Default 4.3 Scale", chart: [
+        // Default 4.33
+        CustomGPA(title: "Default 4.33 Scale", chart: [
             "A+": Weight(standard: 4.33, honors: 4.67, advanced: 5.00),
             "A": Weight(standard: 4.00, honors: 4.33, advanced: 4.67),
             "A-": Weight(standard: 3.67, honors: 4.00, advanced: 4.33),

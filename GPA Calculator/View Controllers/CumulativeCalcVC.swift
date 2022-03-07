@@ -132,7 +132,6 @@ class CumulativeCalcVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
         
-        
         unweightedScoreLabel.text = String(format: "%.3f", totalUnweighted)
         weightedScoreLabel.text = String(format: "%.3f", totalWeighted)
     }
